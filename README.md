@@ -14,4 +14,5 @@ HTML, CSS, Jquery 단순 디자인 프로토타입입니다.
 - Close Welcome Project Layer
 - Select Authorize Account (Left area)
 - browse monitoring.html
-  - svg animation은 좀 더 다듬을 수 있을 것 같네요.
+- **add** click Project name
+- svg animation은 좀 더 다듬을 수 있을 것 같네요.
