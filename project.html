@@ -30,8 +30,13 @@
     <nav>
       <ul class="gnb">
         <li><a href="./monitoring.html"><i class="fa fa-tachometer"></i>Monitoring</a></li>
+        <li><a href="./build.html"><i class="fa fa-play-circle"></i>Build</a></li>
         <li class="is-current"><a href="./project.html"><i class="fa fa-briefcase"></i>Project</a></li>
         <li><a href="./report.html"><i class="fa fa-file-text"></i>Reports</a></li>
+      </ul>
+      <ul class="snb">
+        <li><a href="#"><i class="fa fa-book"></i>Docs</a></li>
+        <li><a href="#"><i class="fa fa-commenting"></i>Help</a></li>
       </ul>
     </nav>
   </header>
@@ -41,10 +46,8 @@
 
     <div class="search-box">
       <form action="">
-        <span class="input-label input-search">
-          <i class="fa fa-search"></i>
-          <input type="text" placeholder="Search..."/>
-        </span>
+        <input type="search" placeholder="Search Branch, Project.."/>
+        <input type="submit" hidden="hidden" />
       </form>
     </div>
 
@@ -73,7 +76,10 @@
 
   <div class="app-container">
 
+    <!-- Blind Background -->
     <div class="blind"></div>
+
+    <!-- Layer : Add First Project -->
     <div class="layer layer-welcome">
       <div class="layer-header">
         <h4>Add Project</h4>
@@ -85,7 +91,7 @@
           <img src="./img/thumb.jpg" alt="thumbnail" width="40">
           <span class="account-name"><i class="fa fa-github"></i>bluehackmaster</span>
         </div>
-        <div class="repository-box">
+        <div class="repository-list">
           <ul>
             <li>
               <a href="#">
@@ -93,7 +99,7 @@
                 <i class="fa fa-code-fork"></i>
                 <i class="fa fa-linux"></i>
               </a>
-              <button type="button" class="btn btn-red"><i class="fa fa-minus-square"></i>Restore Project</button>
+              <button type="button" class="btn btn-red"><i class="fa fa-minus"></i>Restore Project</button>
             </li>
             <li>
               <a href="#">
@@ -101,7 +107,7 @@
                 <i class="fa fa-code-fork"></i>
                 <i class="fa fa-linux"></i>
               </a>
-              <button type="button" class="btn btn-red"><i class="fa fa-minus-square"></i>Restore Project</button>
+              <button type="button" class="btn btn-red"><i class="fa fa-minus"></i>Restore Project</button>
             </li>
             <li>
               <a href="#">
@@ -109,7 +115,7 @@
                 <i class="fa fa-code-fork"></i>
                 <i class="fa fa-apple"></i>
               </a>
-              <button type="button" class="btn"><i class="fa fa-plus-square"></i>Build Project</button>
+              <button type="button" class="btn btn-blue"><i class="fa fa-plus"></i>Build Project</button>
             </li>
           </ul>
         </div>
@@ -141,14 +147,28 @@
     </div>
 
     <div class="repository-box">
-      <ul>
+
+      <div class="bside-header">
+        <h3><i class="fa fa-briefcase"></i> Project</h3>
+        <select class="build-sort">
+          <option>All OS</option>
+          <option>Linux</option>
+          <option>OS X</option>
+        </select>
+        <select class="build-sort">
+          <option>Builded</option>
+          <option>Unbuild</option>
+        </select>
+      </div>
+
+      <ul class="repository-list">
         <li>
           <a href="#">
             <strong>apiway-api</strong>
             <i class="fa fa-code-fork"></i>
             <i class="fa fa-linux"></i>
           </a>
-          <button type="button" class="btn btn-red"><i class="fa fa-minus-square"></i>Restore Project</button>
+          <button type="button" class="btn btn-red"><i class="fa fa-minus"></i>Restore Project</button>
         </li>
         <li>
           <a href="#">
@@ -156,7 +176,7 @@
             <i class="fa fa-code-fork"></i>
             <i class="fa fa-linux"></i>
           </a>
-          <button type="button" class="btn btn-red"><i class="fa fa-minus-square"></i>Restore Project</button>
+          <button type="button" class="btn btn-red"><i class="fa fa-minus"></i>Restore Project</button>
         </li>
         <li>
           <a href="#">
@@ -164,7 +184,7 @@
             <i class="fa fa-code-fork"></i>
             <i class="fa fa-apple"></i>
           </a>
-          <button type="button" class="btn"><i class="fa fa-plus-square"></i>Build Project</button>
+          <button type="button" class="btn btn-blue"><i class="fa fa-plus"></i>Build Project</button>
         </li>
       </ul>
     </div>

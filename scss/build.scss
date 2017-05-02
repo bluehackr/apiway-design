@@ -1,0 +1,217 @@
+
+.projectlist-box {
+  margin-top: 12px;
+  background: $canvas-color;
+  border-radius: 9px 0 0 9px;
+  box-shadow: 0 0 24px rgba($dark-color, .15);
+  overflow: hidden;
+  .projectlist-item {
+    position: relative;
+    padding: 14px 18px;
+    border-bottom: 1px solid $bg-color;
+    line-height: 22px;
+    cursor: pointer;
+    .btn-project-qsetting {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    strong {
+      display: block;
+      padding: 0 28px;
+      color: $dark-color;
+      font-size: 14px;
+      @include textClip;
+    }
+    .fa-github {
+      position: absolute;
+      left: 18px;
+      top: 16px;
+      width: 20px;
+      font-size: 20px;
+    }
+    > span {
+      display: inline-block;
+      color: $dark-color;
+      font-size: 12px;
+      vertical-align: middle;
+      &.branch-label {
+        padding: 0 6px 1px;
+        background: $bg-color;
+        border-radius: 3px;
+      }
+      &.commit-count {
+        @include codeFont;
+      }
+      &:first-of-type {
+        margin-left: 28px;
+      }
+      & ~ span {
+        margin-left: 6px;
+      }
+    }
+    &:hover,
+    &.is-current {
+      background: $base-hover-color;
+      @include transition(all .5s ease-in-out);
+      strong {
+        text-decoration: underline;
+        color: $black-color;
+      }
+    }
+    &.is-current {
+      position: relative;
+      &:after {
+        z-index: 1;
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 7px;
+        height: 100%;
+        background: $point-color;
+        box-shadow: inset 0 0 1px shade($point-color, 25%), -1px 0 12px rgba($point-color,.75);
+      }
+    }
+  }
+}
+
+.aside-header,
+.bside-header {
+  margin-top: 18px;
+  overflow: hidden;
+  h3 {
+    float: left;
+    line-height: 32px;
+    .fa {
+      margin-right: 4px;
+      color: $dark-color;
+    }
+  }
+}
+.aside-header{
+  padding-right: 18px;
+}
+.bside-header {
+  padding-left: 18px;
+  select {
+    float: right;
+  }
+}
+
+.build-box {
+  float: left;
+  box-sizing: border-box;
+  padding-right: 18px;
+  width: 70%;
+}
+.build-list {
+  margin-top: 12px;
+  background: $canvas-color;
+  border-radius: 0 9px 9px 9px;
+  box-shadow: 0 0 24px rgba($dark-color, .15);
+  .build-item {
+    position: relative;
+    padding: 14px 100px 14px 60px;
+    height: 46px;
+    border-bottom: 1px solid $bg-color;
+    line-height: 22px;
+    cursor: pointer;
+    a {
+      display: block;
+      padding-left: 12px;
+      color: $dark-color;
+      font-weight: 500;
+      font-size: 14px;
+      @include textClip;
+      &:hover {
+        color: $black-color;
+      }
+    }
+    .build-author {
+      padding-left: 12px;
+      img {
+        margin-right: 4px;
+        width: 18px;
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+      code {
+        color: $font-sub-color;
+      }
+    }
+    .build-time {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 14px 32px 0 0;
+      font-size: 12px;
+      text-align: right;
+      span {
+        display: block;
+      }
+      .fa {
+        color: $fa-color;
+      }
+    }
+    &:hover {
+      background: $base-hover-color;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      width: 7px;
+      height: 58px;
+      border-radius: 3px;
+    }
+    &.is-pass:after {
+      background: $pass-color;
+    }
+    &.is-fail:after {
+      background: $error-color;
+    }
+    &.is-pause:after {
+      background: $dark-color;
+    }
+  }
+}
+
+.label-status-pass,
+.label-status-fail,
+.label-status-pause {
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  svg {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 1000;
+  }
+}
+.label-status-pass {
+  background: $pass-color url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40"><g fill="none" stroke-width="2" stroke="rgba(255,255,255,.4)"><path d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path></g></svg>') center no-repeat;
+  svg {
+    animation: draw 15s ease-in infinite;
+  }
+}
+.label-status-fail {
+  background: $error-color;
+  svg {
+    stroke-dasharray: 2;
+    animation: blinker 1s linear infinite;
+  }
+}
+.label-status-pause {
+  background: $dark-color;
+  svg {
+    opacity: .4;
+    stroke-dasharray: 4;
+    animation: dash 180s linear infinite;
+  }
+}

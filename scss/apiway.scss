@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500');
 
 /* function and mixin */
 @function tint($color, $percentage) {
@@ -42,30 +42,50 @@
   }
   & { *zoom: 1; }
 }
+@mixin textClip { /* long text lendering ... */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin codeFont {
+  font-weight: 400;
+  font-family: "SF Mono Regular", "Consolas", "Monaco", "Andale Mono", courier;
+}
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder {@content}
+  ::-moz-placeholder {@content}
+  :-ms-input-placeholder {@content}
+}
+
+/* css animation */
 @keyframes dash {
   to { stroke-dashoffset: -1000; }
 }
-/* The typing effect */
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
-@mixin placeholder {
-  ::-webkit-input-placeholder {@content}
-  :-moz-placeholder           {@content}
-  ::-moz-placeholder          {@content}
-  :-ms-input-placeholder      {@content}
+@keyframes blinker {
+  50% { opacity: 0; }
 }
 
-/* colorset */
-$point-color: #3AC6AA;
-$dark1-color: #3B4051;
-$dark0-color: tint($dark1-color, 10%);
-$error-color: #F44336;
-$pass-color: #3AC6AA;
-$bg-color: #F5F7FA;
+/* color set */
+$bg-color: #F0F2FA;
+$point-color: #FFD552;
+$dark-color: #5E6C8C;
+$font-color: darken($dark-color, 5%);
+$font-sub-color: tint($dark-color, 25%);
+$black-color: darken($dark-color, 15%);
+$fa-color: tint($font-color, 75%);
+$error-color: #E66464;
+$pass-color: #3FB79C;
 $canvas-color: #FFF;
 $white-color: #FFF;
+$base-hover-color: lighten($bg-color, 2%);
 
 /* setting */
 * {
@@ -76,15 +96,16 @@ $white-color: #FFF;
 }
 html {
   height: 100%;
-  font-family: "Roboto", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+  font-family: "Maven Pro", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
 }
 body {
   height: 100%;
   min-height: 100%;
-  @include gradientY(darken($bg-color, 5%), #FFF);
-  color: lighten($dark1-color, 15%);
-  font-size: 14px;
+  background: $bg-color;
+  color: $font-color;
+  font-size: 13px;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   cursor: default;
   &.page-third {
     display: table;
@@ -96,15 +117,22 @@ body {
     @include transition(all .2s ease);
   }
   a {
-    color: $dark1-color;
-    font-weight: 500;
+    color: $black-color;
+    font-weight: 400;
     text-decoration: none;
+    .fa {
+      color: $fa-color;
+      @include transition(all .2s ease);
+    }
     &:hover {
       text-decoration: underline;
+      .fa {
+        color: $font-color;
+      }
     }
   }
   strong {
-    font-weight: 600;
+    font-weight: 500;
   }
   form {
     margin: 0;
@@ -112,11 +140,17 @@ body {
   button {
     outline: none;
   }
+  code {
+    @include codeFont;
+  }
+  li {
+    @include transition(all .5s ease-in-out);
+  }
 }
 
 div.page-third {
   display: table-cell;
-  background: $dark1-color;
+  background: $dark-color;
   vertical-align: middle;
   text-align: center;
   > footer {
@@ -127,22 +161,26 @@ div.page-third {
     box-sizing: border-box;
     padding: 0 32px;
     width: 100%;
-    background: darken($dark1-color, 3%);
+    background: darken($dark-color, 5%);
     font-size: 13px;
     line-height: 48px;
     text-align: left;
     > a {
       margin-right: 16px;
-      color: tint($dark0-color, 30%);
+      color: tint($dark-color, 40%);
     }
     h6 {
       float: right;
-      color: tint($dark0-color, 30%);
+      color: tint($dark-color, 40%);
       font-size: 13px;
       a {
         color: $white-color;
-        font-weight: 600;
+        font-weight: 500;
       }
+    }
+    a:hover {
+      color: $white-color;
+      text-decoration: none;
     }
   }
 }
@@ -152,9 +190,10 @@ div.page-third {
   position: relative;
   margin: 0 auto;
   max-width: 380px;
-  background: #FFF;
+  background: $white-color;
   border-radius: 9px;
-  box-shadow: 0 4px 18px shade($dark1-color, 10%);
+  box-shadow: 0 4px 18px shade($dark-color, 10%);
+  overflow: hidden;
   .pane-header {
       padding: 64px 0 32px;
       h1 {
@@ -170,101 +209,12 @@ div.page-third {
   .pane-footer {
     padding-bottom: 2px;
     border-top: 1px solid shade($bg-color, 2%);
+    background: $base-hover-color;
     font-size: 14px;
     line-height: 48px;
     a {
-      color: $point-color;
-      font-weight: 600;
-    }
-  }
-}
-
-.btn {
-  margin: 2px;
-  padding: 0 18px 1px;
-  border-bottom: 1px solid shade($point-color, 5%);
-  background: $point-color;
-  color: #FFF;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 31px;
-  border-radius: 3px;
-  text-shadow: 0 1px shade($point-color, 10%);
-  box-shadow: 0 1px 1px shade($bg-color, 10%);
-  outline: none;
-  &:enabled:hover {
-    z-index: 1;
-    background: lighten($point-color, 6%);
-  }
-  &:enabled:active {
-    border-bottom: 1px solid darken($point-color, 15%);
-    background: darken($point-color, 10%);
-    text-shadow: 0 -1px shade($point-color, 15%);
-  }
-  .fa {
-    margin-right: 8px;
-  }
-  &.block {
-    position: relative;
-    display: block;
-    margin: 8px auto;
-    width: 100%;
-    font-size: 16px;
-    line-height: 46px;
-    border-radius: 4px;
-    .fa {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      margin-top: -10px;
-      font-size: 20px;
-    }
-    .fa-caret-right {
-      left: inherit;
-      right: 12px;
-      margin-top: -6px;
-      font-size: 12px;
-    }
-  }
-  &:disabled {
-    border-bottom: 1px solid shade(darken($bg-color, 30%), 5%);
-    background: darken($bg-color, 30%);
-    text-shadow: 0 -1px shade(darken($bg-color, 30%), 10%);
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  &-clear {
-    padding: 0 12px;
-    height: 32px;
-    border: 2px solid $point-color;
-    background: $canvas-color;
-    line-height: 30px;
-    border-radius: 3px;
-  }
-  &-text {
-    background: transparent;
-    color: $dark0-color;
-    font-size: 13px;
-    &:hover, &:active {
-      color: $dark1-color;
-      text-decoration: underline;
-    }
-    .fa {
-      margin: 0 6px;
-    }
-  }
-  &.btn-red {
-    border-bottom: 1px solid shade($error-color, 10%);
-    background: $error-color;
-    text-shadow: 0 1px shade($error-color, 10%);
-    &:enabled:hover {
-      z-index: 1;
-      background: lighten($error-color, 6%);
-    }
-    &:enabled:active {
-      border-bottom: 1px solid darken($error-color, 15%);
-      background: darken($error-color, 10%);
-      text-shadow: 0 -1px shade($error-color, 15%);
+      color: $dark-color;
+      font-weight: 500;
     }
   }
 }
@@ -279,9 +229,9 @@ div.page-third {
   position: fixed;
   left: 0;
   top: 0;
-  width: 100px;
+  width: 90px;
   height: 100%;
-  background: darken($dark0-color, 25%);
+  background: $black-color;
   text-align: center;
   box-shadow: 1px 0 24px rgba(0,0,0,.15);
   @include clearFix();
@@ -294,19 +244,24 @@ div.page-third {
   }
   nav {
     clear: both;
-    font-size: 13px;
+    font-size: 12px;
     a {
       display: block;
       padding: 24px 0;
-      color: tint($dark1-color, 30%);
-      &:hover {
-        color: $white-color;
-        text-decoration: none;
-      }
+      color: tint($dark-color, 30%);
+      font-weight: 600;
       .fa {
         display: block;
         margin-bottom: 8px;
+        color: tint($dark-color, 30%);
         font-size: 24px;
+      }
+      &:hover {
+        color: $white-color;
+        text-decoration: none;
+        .fa {
+          color: $white-color;
+        }
       }
     }
     li {
@@ -314,19 +269,23 @@ div.page-third {
       &.is-current {
         position: relative;
         a {
-          background: tint($dark1-color, 1%);
+          background: darken($black-color, 8%);
           color: $white-color;
-          font-weight: 600;
           box-shadow: 0 0 12px rgba(0,0,0,.15);
+          .fa {
+            color: $white-color;
+          }
         }
         a:after {
           content: "";
           position: absolute;
-          right: -6px;
+          right: -7px;
           top: 0;
-          width: 6px;
+          width: 7px;
           height: 100%;
           background: $point-color;
+          border-radius: 0 3px 3px 0;
+          box-shadow: inset 0 0 1px shade($point-color, 25%), -1px 0 12px rgba($point-color,.75);
         }
       }
     }
@@ -336,27 +295,15 @@ div.page-third {
 .app-topper {
   position: relative;
   box-sizing: border-box;
-  padding-left: 100px;
+  padding-left: 90px;
   height: 60px;
   background: $canvas-color;
-  line-height: 60px;
+  line-height: 58px;
   box-shadow: 0 1px 24px shade($bg-color, 10%);
   .search-box {
     position: relative;
-    padding-left: 32px;
+    padding-left: 18px;
     max-width: 320px;
-    .fa-search {
-      position: absolute;
-      left: 44px;
-      top: 50%;
-      margin-top: -9px;
-      font-size: 16px;
-      color: lighten($dark0-color, 25%);
-    }
-    input[type=text] {
-      text-indent: 38px;
-      font-size: 14px;
-    }
   }
   .account-box {
     position: absolute;
@@ -366,22 +313,20 @@ div.page-third {
     .account-name {
       float: right;
       padding: 0 12px 0 24px;
+      line-height: 60px;
       overflow: hidden;
       img {
         margin-right: 12px;
-        width: 40px;
+        width: 36px;
         border-radius: 50%;
         vertical-align: middle;
         overflow: hidden;
       }
-      .fa-caret-down {
-        opacity: .25;
-      }
       &:hover {
         text-decoration: none;
-        background: tint($bg-color, 10%);
+        background: $base-hover-color;
         .fa-caret-down {
-          color: $dark0-color;
+          color: $dark-color;
           opacity: .5;
         }
       }
@@ -392,11 +337,11 @@ div.page-third {
       position: fixed;
       right: 12px;
       top: 72px;
-      width: 210px;
+      width: 240px;
       background: $canvas-color;
       text-align: left;
       border-radius: 9px;
-      box-shadow: 0 1px 24px rgba($dark0-color, .15);
+      box-shadow: 0 1px 24px rgba($dark-color, .25);
       overflow: hidden;
       .account-info {
         padding-bottom: 24px;
@@ -404,44 +349,44 @@ div.page-third {
         text-align: center;
         img {
           display: block;
-          margin: 24px auto 12px;
+          margin: 32px auto 12px;
           width: 60px;
           border-radius: 50%;
         }
         strong {
           display: block;
-          color: $dark1-color;
-          font-weight: 500;
-          font-size: 15px;
+          color: $black-color;
+          font-size: 14px;
         }
         em {
           display: block;
-          color: tint($dark0-color, 15%);
-          font-weight: 400;
+          color: tint($dark-color, 15%);
           font-style: normal;
           font-size: 12px;
         }
       }
-      ul {
-        margin: 0;
-        li {
-          margin: 0;
-        }
-      }
-      li > a {
+      a {
         position: relative;
         display: block;
         padding-left: 48px;
+        height: 44px;
         border-top: 1px solid tint($bg-color, 5%);
-        line-height: 44px;
-      }
-      .fa {
-        position: absolute;
-        left: 24px;
-        top: 50%;
-        margin-top: -8px;
-        margin-right: 12px;
-        opacity: .75;
+        line-height: 42px;
+        .fa {
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          margin-top: -8px;
+          margin-right: 12px;
+          color: $fa-color;
+        }
+        &:hover {
+          text-decoration: none;
+          background: $base-hover-color;
+          .fa {
+            color: $font-color;
+          }
+        }
       }
     }
   }
@@ -450,8 +395,8 @@ div.page-third {
 .app-container {
   position: relative;
   box-sizing: border-box;
-  margin-left: 100px;
-  padding: 20px 20px 64px;
+  margin-left: 90px;
+  padding-bottom: 64px;
   max-width: 100%;
   height: 100%;
   overflow: hidden;
@@ -459,23 +404,23 @@ div.page-third {
 
 .project-box {
   float: left;
-  width: 65%;
+  width: 60%;
   overflow: hidden;
 }
 .project-item {
   float: left;
   width: 50%;
   .project-inner {
-    margin: 12px;
+    margin: 18px 0 0 18px;
     background: $canvas-color;
     border-radius: 9px;
-    box-shadow: 0 0 24px rgba($dark0-color, .15);
+    box-shadow: 0 0 24px rgba($dark-color, .15);
     overflow: hidden;
   }
   .project-header {
     position: relative;
-    padding: 16px 20px;
-    line-height: 22px;
+    padding: 14px 18px;
+    line-height: 21px;
     .btn-project-qsetting {
       position: absolute;
       right: 0;
@@ -483,39 +428,33 @@ div.page-third {
     }
     a {
       display: block;
-      padding-left: 28px;
-      color: $dark1-color;
-      font-size: 15px;
+      padding-left: 24px;
+      color: $black-color;
+      font-size: 14px;
+      @include textClip;
       .fa-github {
         position: absolute;
-        left: 20px;
-        top: 17px;
+        left: 18px;
+        top: 16px;
         width: 20px;
-        color: lighten($dark0-color, 25%);
-        font-size: 20px;
-      }
-      strong {
-        font-weight: 500;
-        white-space: nowrap;
+        font-size: 18px;
       }
     }
     ul {
-      margin: 0 0 0 28px;
+      margin: 0 0 0 24px;
       font-size: 12px;
       li {
         display: inline;
-        color: tint($dark0-color, 25%);
       }
       strong {
-        color: $dark0-color;
-        font-weight: 400;
+        color: $dark-color;
       }
     }
   }
   .project-status {
     position: relative;
-    height: 150px;
-    line-height: 150px;
+    height: 120px;
+    line-height: 120px;
     text-align: center;
     overflow: hidden;
     &.status-pass {
@@ -539,7 +478,7 @@ div.page-third {
       }
     }
     &.status-pause {
-      background: $dark0-color url('../img/status-pause.svg') repeat-x center;
+      background: $dark-color url('../img/status-pause.svg') repeat-x center;
       .status-alert {
         position: absolute;
         left: 50%;
@@ -547,7 +486,7 @@ div.page-third {
         margin: -36px 0 0 -36px;
         width: 72px;
         height: 72px;
-        background: $dark0-color url('../img/i-pause.svg') no-repeat center;
+        background: $dark-color url('../img/i-pause.svg') no-repeat center;
         background-size: 20%;
         text-indent: -9999px;
         border-radius: 50%;
@@ -562,7 +501,7 @@ div.page-third {
 
 .timeline-box {
   float: right;
-  width: 35%;
+  width: 40%;
   overflow: hidden;
   &.is-fullscreen {
     z-index: 2;
@@ -573,10 +512,10 @@ div.page-third {
     width: 100%;
   }
   .timeline-inner {
-    margin: 12px;
+    margin: 18px;
     background: $canvas-color;
     border-radius: 9px;
-    box-shadow: 0 0 24px rgba($dark0-color, .15);
+    box-shadow: 0 0 24px rgba($dark-color, .15);
     overflow: hidden;
   }
   .timeline-header {
@@ -585,11 +524,10 @@ div.page-third {
     h4 {
       text-transform: uppercase;
       margin: 0;
-      color: $dark1-color;
-      font-weight: 600;
-      font-size: 12px;
+      color: $dark-color;
+      font-weight: 500;
+      font-size: 13px;
       line-height: 40px;
-      letter-spacing: 1px;
       text-align: center;
     }
     .btn-fullscreen {
@@ -608,9 +546,9 @@ div.page-third {
     }
   }
   .timeline-log {
-    background: darken($dark1-color, 10%);
+    background: darken($dark-color, 10%);
     color: lighten($white-color, 30%);
-    font-family: "courier new", serif;
+    @include codeFont;
     font-size: 13px;
     line-height: 21px;
     ul {
@@ -621,13 +559,13 @@ div.page-third {
       margin: 0;
       padding: 12px 16px 12px 80px;
       &:nth-child(odd) {
-        background: darken($dark1-color, 15%);
+        background: darken($dark-color, 15%);
       }
       .log-status {
         position: absolute;
         left: 16px;
         top: 12px;
-        color: tint($dark0-color, 25%);
+        color: tint($dark-color, 25%);
         text-transform: uppercase;
         font-weight: 600;
         white-space: nowrap;
@@ -637,22 +575,16 @@ div.page-third {
         display: block;
         color: $white-color;
         font-weight: 600;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+        @include textClip;
       }
       .log-desc {
         display: block;
-        color: lighten($white-color, 60%);
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+        color: rgba(255,255,255,.75);
+        @include textClip;
       }
       &.status-fail {
         background: $error-color;
-        &:hover {
-          box-shadow: 0 0 24px rgba($error-color, .75);
-        }
+        box-shadow: 0 0 24px rgba($error-color, .75);
         .log-status {
           color: $white-color;
         }
@@ -678,23 +610,23 @@ div.page-third {
   font-size: 13px;
   line-height: 44px;
   a {
-    color: tint($dark0-color, 30%);
+    color: tint($dark-color, 30%);
     & ~ a {
       margin-left: 16px;
     }
     &:hover {
-      color: $dark0-color;
+      color: $dark-color;
     }
   }
   .copyright {
     float: right;
     margin: 0;
-    color: tint($dark0-color, 30%);
+    color: tint($dark-color, 30%);
     font-size: 13px;
     line-height: 44px;
     text-align: right;
     a {
-      color: $dark0-color;
+      color: $dark-color;
       font-weight: 600;
     }
   }
@@ -712,35 +644,31 @@ div.page-third {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba($dark1-color, .75);
+  background: rgba($dark-color, .75);
 }
 .layer {
   z-index: 5;
   position: fixed;
-  left: 50%;
-  top: 120px;
-  margin-left: -240px;
-  width: 480px;
   background: $canvas-color;
   border-radius: 9px;
-  box-shadow: 0 0 24px rgba($dark1-color, .5);
+  box-shadow: 0 0 24px rgba($dark-color, .5);
   .layer-header h4 {
     padding: 2px 24px 0;
     border-bottom: 1px solid shade($bg-color, 8%);
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 48px;
   }
   .layer-content {
     max-height: 540px;
-    @include gradientY(darken($bg-color, 5%), #FFF);
+    @include gradientY($bg-color, tint($bg-color, 10%));
     padding: 24px;
     overflow-y: auto;
   }
   .welcome {
     display: block;
     padding: 24px 0;
-    color: $dark0-color;
+    color: $dark-color;
     text-align: center;
     img {
       margin: 32px auto 0;
@@ -751,7 +679,7 @@ div.page-third {
     .account-name {
       display: block;
       padding: 12px 0;
-      color: $dark1-color;
+      color: $dark-color;
       font-size: 15px;
       .fa {
         margin-right: 6px;
@@ -760,12 +688,12 @@ div.page-third {
     strong {
       display: block;
       padding: 0 0 8px;
-      color: $dark1-color;
+      color: $dark-color;
       font-weight: 300;
       font-size: 24px;
     }
     p {
-      color: lighten($dark0-color, 20%);
+      color: lighten($dark-color, 20%);
       font-size: 15px;
       line-height: 21px;
     }
@@ -776,14 +704,20 @@ div.page-third {
     line-height: 44px;
     text-align: right;
   }
+  &.layer-welcome {
+    left: 50%;
+    top: 120px;
+    margin-left: -240px;
+    width: 480px;
+  }
 }
 
 .organize-box {
   float: left;
   box-sizing: border-box;
-  width: 280px;
+  width: 25%;
   .organize-inner {
-    padding: 12px 24px 12px 12px;
+    padding: 18px 0 0 18px;
   }
   li {
     position: relative;
@@ -793,7 +727,7 @@ div.page-third {
     border-bottom-color: darken($bg-color, 10%);
     background: $canvas-color;
     border-radius: 0 9px 9px;
-    box-shadow: 0 0 12px rgba($dark0-color, .15);
+    box-shadow: 0 0 12px rgba($dark-color, .15);
     cursor: pointer;
     opacity: .6;
     .label {
@@ -802,7 +736,7 @@ div.page-third {
       top: -28px;
       padding: 0 12px;
       height: 28px;
-      background: $dark0-color;
+      background: $dark-color;
       color: $white-color;
       font-weight: 600;
       font-size: 12px;
@@ -820,7 +754,7 @@ div.page-third {
       border-radius: 50%;
     }
     strong {
-      color: $dark1-color;
+      color: $dark-color;
       font-weight: 400;
     }
     &.is-select {
@@ -833,40 +767,58 @@ div.page-third {
 }
 
 .repository-box {
-  margin: 12px;
+  float: left;
+  box-sizing: border-box;
+  width: 75%;
+  padding: 18px;
+}
+.repository-list {
+  margin-top: 12px;
   border: 1px solid shade($bg-color, 5%);
   border-bottom: none;
   border-radius: 9px;
-  box-shadow: 0 1px 12px rgba($dark0-color, .15);
+  box-shadow: 0 1px 12px rgba($dark-color, .15);
   overflow: hidden;
   li {
     position: relative;
     border-bottom: 1px solid shade($bg-color, 5%);
     background: $canvas-color;
     &:hover {
-      background: $bg-color;
+      background: $base-hover-color;
     }
     a {
       display: inline-block;
       padding: 16px 20px;
+      color: $dark-color;
       strong {
-        font-weight: 400;
+        font-weight: 500;
       }
       .fa {
         margin-left: 6px;
       }
       &:hover {
+        color: $black-color;
         text-decoration: none;
+        strong {
+          text-decoration: underline;
+        }
       }
     }
     .btn {
       position: absolute;
-      right: 20px;
+      right: 18px;
       top: 50%;
       margin: -16px 0 0;
-      width: 160px;
+      width: 140px;
     }
   }
+}
+
+.aside-box {
+  float: left;
+  box-sizing: border-box;
+  padding-left: 18px;
+  width: 30%;
 }
 
 .status-svg {
@@ -883,46 +835,6 @@ div.page-third {
   @include transition(all .5s ease-in-out);
 }
 
-.ibtn {
-  padding: 0;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: transparent;
-  color: tint($dark0-color,75%);
-  font-size: 16px;
-  line-height: 38px;
-  text-align: center;
-  span {
-    display: none;
-  }
-  &:hover, &:active, &:visited, &:focus {
-    background: transparent !important;
-    color: $dark0-color;
-  }
-}
-
-input[type=text] {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 100%;
-  height: 32px;
-  border: 1px solid transparent;
-  background: $bg-color;
-  line-height: 32px;
-  vertical-align: middle;
-  border-radius: 6px;
-  outline: none;
-  &:hover, &:focus {
-    border-color: shade($bg-color, 5%);
-  }
-  &:focus {
-    border-color: shade($bg-color, 10%);
-    box-shadow: 0 1px 2px $bg-color;
-  }
-}
-@include placeholder {
-  font-style: italic;
-  color: lighten($dark0-color, 40%);
-  font-weight: 300;
-}
+@import "build.scss";
+@import "report.scss";
+@import "form.scss";

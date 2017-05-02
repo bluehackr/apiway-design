@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="apiway design sample">
+    <meta name="author" content="R">
+    <meta name="keyword" content="api, apiway">
+    <link rel="shortcut icon" href="img/favicon-fail.svg">
+    <title>APIWAY - Test Detail</title>
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Icons -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Main styles for this application -->
+    <link href="css/apiway.css" rel="stylesheet">
+
+</head>
+
+<body class="app monitoring">
+
+<div class="app-wrap">
+
+  <!-- app header with GNB -->
+  <header class="app-header">
+    <h1><img src="./img/logo-w.png" alt="apiway"></h1>
+    <nav>
+      <ul class="gnb">
+        <li><a href="./monitoring.html"><i class="fa fa-tachometer"></i>Monitoring</a></li>
+        <li class="is-current"><a href="./project.html"><i class="fa fa-briefcase"></i>Project</a></li>
+        <li><a href="./report.html"><i class="fa fa-file-text"></i>Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- app topper with Search, Account -->
+  <div class="app-topper">
+
+    <div class="search-box">
+      <form action="">
+        <input type="search" placeholder="Search Branch, Project.."/>
+        <input type="submit" hidden="hidden" />
+      </form>
+    </div>
+
+    <div class="account-box">
+      <a href="#" class="account-name">
+        <img src="./img/thumb.jpg" alt="thumbnail" width="44">
+        <i class="fa fa-caret-down"></i>
+      </a>
+      <div class="layer account-nav">
+        <ul>
+          <li>
+            <div class="account-info">
+              <img src="./img/thumb.jpg" alt="thumbnail" width="60">
+              <strong>bluehackmaster</strong>
+              <em>master@bluehack.net</em>
+            </div>
+          </li>
+          <li><a href="#"><i class="fa fa-cog"></i>Account setting</a></li>
+          <li><a href="#"><i class="fa fa-bell"></i>Notification</a></li>
+          <li><a href="login.html"><i class="fa fa-sign-out"></i>Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="app-container">
+
+    <div class="aside-box">
+      <select class="projectlist-sort">
+        <option>Recent</option>
+        <option>A to Z</option>
+      </select>
+      <select class="projectlist-sort">
+        <option>All Branches</option>
+        <option>My Branches</option>
+      </select>
+      <ul class="projectlist-box">
+        <li class="projectlist-item current">
+          <a href="./project-detail.html">
+            <i class="fa fa-github"></i>
+            <strong>bluehackr / WalkOn-API</strong>
+          </a>
+          <span class="branch-label">master</span>
+          <span class="commit-count">#139</span>
+          <button class="ibtn btn-project-qsetting">
+            <i class="fa fa-cog"></i>
+            <span>Quick setting</span>
+          </button>
+        </li>
+        <li class="projectlist-item current">
+          <a href="./project-detail.html">
+            <i class="fa fa-github"></i>
+            <strong>bluehackr / WalkOn-API</strong>
+          </a>
+          <span class="branch-label">master</span>
+          <span class="commit-count">#139</span>
+          <button class="ibtn btn-project-qsetting">
+            <i class="fa fa-cog"></i>
+            <span>Quick setting</span>
+          </button>
+        </li>
+        <li class="projectlist-item current">
+          <a href="./project-detail.html">
+            <i class="fa fa-github"></i>
+            <strong>bluehackr / WalkOn-API</strong>
+          </a>
+          <span class="branch-label">master</span>
+          <span class="commit-count">#139</span>
+          <button class="ibtn btn-project-qsetting">
+            <i class="fa fa-cog"></i>
+            <span>Quick setting</span>
+          </button>
+        </li>
+          <li class="projectlist-item current">
+            <a href="./project-detail.html">
+              <i class="fa fa-github"></i>
+              <strong>bluehackr / WalkOn-API</strong>
+            </a>
+            <span class="branch-label">master</span>
+            <span class="commit-count">#139</span>
+            <button class="ibtn btn-project-qsetting">
+              <i class="fa fa-cog"></i>
+              <span>Quick setting</span>
+            </button>
+          </li>
+      </ul>
+    </div>
+
+    <div class="test-detail-box">
+
+      <div class="test-detail-header">
+        <h2>bluehackr / WalkOn-API / master / test 1</h3>
+        <button type="button" class="btn">
+          <i class="fa fa-refresh"></i>
+          <span>Rebuild</span>
+        </button>
+        <button type="button" class="btn">View Pull Request</button>
+        <button type="button" class="ibtn">
+          <i class="fa fa-cog"></i>
+          <span>Setting</span>
+        </button>
+      </div>
+
+      <div class="alert-error">
+        <i class="fa fa-exclamation-circle"></i>
+        우리는 올바른 apiway.yml을 찾지 못 했어. <a href="#">이 문서</a>를 참고로 새롭게 생성해주거나, 확인해 봐 주겠어?
+      </div>
+
+      <div class="test-detail-info">
+        <span class="label-status-fail">No Tests</span>
+        <dl>
+          <dt>Finished</dt>
+          <dd>21 days ago</dd>
+          <dt>During</dt>
+          <dd>00:41</dd>
+          <dt>Parallelism</dt>
+          <dd>1x out of 4x</dd>
+          <dt>Queued</dt>
+          <dd>02:39 waiting + 00:00 in queue</dd>
+          <dt>Triggered by</dt>
+          <dd><a href="#">R</a></dd>
+        </dl>
+        <div class="test-commits">
+          <h3><strong>#2</strong> Commits</h3>
+          <ul>
+            <li>
+              <a href="#">bluehackmaster</a>
+              <a href="#">1x0d93d</a>
+              <code>API default information modified</code>
+            </li>
+            <li>
+              <a href="#">bluehackmaster</a>
+              <a href="#">1x0d93d</a>
+              <code>Setup for AWS credentials</code>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="app-footer">
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy</a>
+      <a href="#">Cookies</a>
+      <h6 class="copyright">
+        &copy; 2017 <a href="https://apiway.io/">apiway.io</a>
+      </h6>
+  </footer>
+
+</div>
+
+<script src="js/libs/jquery.min.js"></script>
+<!-- Custom scripts required by this view -->
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
