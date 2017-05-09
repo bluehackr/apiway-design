@@ -69,7 +69,7 @@
         top: 0;
         width: 7px;
         height: 100%;
-        background: $point-color;
+        @include pointGradientY();
         box-shadow: inset 0 0 1px shade($point-color, 25%), -1px 0 12px rgba($point-color,.75);
       }
     }
@@ -202,10 +202,6 @@
 }
 .label-status-fail {
   background: $error-color;
-  svg {
-    stroke-dasharray: 2;
-    animation: blinker 1s linear infinite;
-  }
 }
 .label-status-pause {
   background: $dark-color;

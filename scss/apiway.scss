@@ -21,6 +21,16 @@
   background-image: -o-linear-gradient(right, $from, $to);
   background-image: linear-gradient(to right, $from, $to);
 }
+@mixin pointGradientX {
+  background: $pass-color;
+  background: -webkit-linear-gradient(to right, $pass-color, $error-color);
+  background: linear-gradient(to right, $pass-color, $error-color);
+}
+@mixin pointGradientY {
+  background: $pass-color;
+  background: -webkit-linear-gradient($pass-color, $error-color);
+  background: linear-gradient($pass-color, $error-color);
+}
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -70,19 +80,27 @@
   to { width: 100% }
 }
 @keyframes blinker {
-  50% { opacity: 0; }
+  50% { opacity: 1; }
+  75% { opacity: .4; }
+  85% { opacity: 1; }
+}
+@keyframes animatedBG {
+	from { background-position: 0 100%; }
+	to { background-position: 0 0; }
 }
 
 /* color set */
 $bg-color: #F0F2FA;
-$point-color: #FFD552;
+$point-color: #9E79DF;
 $dark-color: #5E6C8C;
 $font-color: darken($dark-color, 5%);
 $font-sub-color: tint($dark-color, 25%);
-$black-color: darken($dark-color, 15%);
+$black-color: darken($dark-color, 25%);
 $fa-color: tint($font-color, 75%);
-$error-color: #E66464;
-$pass-color: #3FB79C;
+$deco-color: rgba(#FFF, .4);
+$blind-color: rgba(#000, .15);
+$error-color: #C858E2;
+$pass-color: #2657EB;
 $canvas-color: #FFF;
 $white-color: #FFF;
 $base-hover-color: lighten($bg-color, 2%);
@@ -112,7 +130,7 @@ body {
     width: 100%;
     height: 100%;
   }
-  a, button, input, select {
+  a, a:after, button, input, select {
     cursor: pointer;
     @include transition(all .2s ease);
   }
@@ -150,7 +168,7 @@ body {
 
 div.page-third {
   display: table-cell;
-  background: $dark-color;
+  @include pointGradientX();
   vertical-align: middle;
   text-align: center;
   > footer {
@@ -161,17 +179,18 @@ div.page-third {
     box-sizing: border-box;
     padding: 0 32px;
     width: 100%;
-    background: darken($dark-color, 5%);
-    font-size: 13px;
+    background: $blind-color;
+    font-size: 12px;
     line-height: 48px;
     text-align: left;
     > a {
       margin-right: 16px;
-      color: tint($dark-color, 40%);
+      color: $deco-color;
     }
     h6 {
       float: right;
-      color: tint($dark-color, 40%);
+      color: $deco-color;
+      font-weight: 500;
       font-size: 13px;
       a {
         color: $white-color;
@@ -213,7 +232,7 @@ div.page-third {
     font-size: 14px;
     line-height: 48px;
     a {
-      color: $dark-color;
+      color: $black-color;
       font-weight: 500;
     }
   }
@@ -244,12 +263,12 @@ div.page-third {
   }
   nav {
     clear: both;
-    font-size: 12px;
+    font-size: 11px;
     a {
       display: block;
       padding: 24px 0;
       color: tint($dark-color, 30%);
-      font-weight: 600;
+      font-weight: 500;
       .fa {
         display: block;
         margin-bottom: 8px;
@@ -283,10 +302,31 @@ div.page-third {
           top: 0;
           width: 7px;
           height: 100%;
-          background: $point-color;
+          @include pointGradientY();
           border-radius: 0 3px 3px 0;
-          box-shadow: inset 0 0 1px shade($point-color, 25%), -1px 0 12px rgba($point-color,.75);
+          box-shadow: inset 0 0 1px shade($point-color, 25%), -1px 0 12px rgba($pass-color, .75);
         }
+      }
+    }
+    .snb {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: left;
+      a {
+        padding: 0 0 0 18px;
+        border-top: 1px solid lighten($black-color, 2%);
+        background: darken($black-color, 2%);
+        line-height: 44px;
+        &:hover {
+          background: darken($black-color, 6%);
+        }
+      }
+      .fa {
+        display: inline-block;
+        margin-right: 8px;
+        font-size: 12px;
       }
     }
   }
@@ -296,9 +336,9 @@ div.page-third {
   position: relative;
   box-sizing: border-box;
   padding-left: 90px;
-  height: 60px;
+  height: 54px;
   background: $canvas-color;
-  line-height: 58px;
+  line-height: 52px;
   box-shadow: 0 1px 24px shade($bg-color, 10%);
   .search-box {
     position: relative;
@@ -312,8 +352,8 @@ div.page-third {
     text-align: right;
     .account-name {
       float: right;
-      padding: 0 12px 0 24px;
-      line-height: 60px;
+      padding: 0 12px 2px 24px;
+      line-height: 52px;
       overflow: hidden;
       img {
         margin-right: 12px;
@@ -336,7 +376,7 @@ div.page-third {
       z-index: 1;
       position: fixed;
       right: 12px;
-      top: 72px;
+      top: 66px;
       width: 240px;
       background: $canvas-color;
       text-align: left;
@@ -406,16 +446,19 @@ div.page-third {
   float: left;
   width: 60%;
   overflow: hidden;
+  &.is-hide {
+    width: 0;
+  }
 }
 .project-item {
   float: left;
   width: 50%;
+  text-align: left;
   .project-inner {
     margin: 18px 0 0 18px;
     background: $canvas-color;
     border-radius: 9px;
     box-shadow: 0 0 24px rgba($dark-color, .15);
-    overflow: hidden;
   }
   .project-header {
     position: relative;
@@ -457,8 +500,14 @@ div.page-third {
     line-height: 120px;
     text-align: center;
     overflow: hidden;
+    border-radius: 0 0 8px 8px;
     &.status-pass {
-      background: $pass-color;
+      background: $pass-color url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" viewBox="0 0 479 102">
+        <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".2">
+          <path d="M0,50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50"/>
+        </g>
+      </svg>') no-repeat center;
+      background-size: 100% 100px;
     }
     &.status-fail {
       background: $error-color url('../img/status-fail.svg') repeat-x center;
@@ -494,7 +543,10 @@ div.page-third {
       }
     }
     svg {
-      vertical-align: middle;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -50px;
     }
   }
 }
@@ -504,11 +556,6 @@ div.page-third {
   width: 40%;
   overflow: hidden;
   &.is-fullscreen {
-    z-index: 2;
-    position: relative;
-    left: 0;
-    top: 0;
-    float: inherit;
     width: 100%;
   }
   .timeline-inner {
@@ -516,11 +563,10 @@ div.page-third {
     background: $canvas-color;
     border-radius: 9px;
     box-shadow: 0 0 24px rgba($dark-color, .15);
-    overflow: hidden;
   }
   .timeline-header {
     position: relative;
-    background: $canvas-color;
+    border-radius: 8px;
     h4 {
       text-transform: uppercase;
       margin: 0;
@@ -551,6 +597,7 @@ div.page-third {
     @include codeFont;
     font-size: 13px;
     line-height: 21px;
+    border-radius: 0 0 8px 8px;
     ul {
       margin: 0;
     }
@@ -560,6 +607,9 @@ div.page-third {
       padding: 12px 16px 12px 80px;
       &:nth-child(odd) {
         background: darken($dark-color, 15%);
+      }
+      &:last-child {
+        border-radius: 0 0 8px 8px;
       }
       .log-status {
         position: absolute;
@@ -602,12 +652,12 @@ div.page-third {
 .app-footer {
   position: relative;
   box-sizing: border-box;
-  padding: 0 32px 0 152px;
+  padding: 0 24px 0 114px;
   width: 100%;
   height: 44px;
   border-top: 1px solid shade($bg-color, 5%);
   background: $canvas-color;
-  font-size: 13px;
+  font-size: 11px;
   line-height: 44px;
   a {
     color: tint($dark-color, 30%);
@@ -621,13 +671,13 @@ div.page-third {
   .copyright {
     float: right;
     margin: 0;
-    color: tint($dark-color, 30%);
-    font-size: 13px;
+    font-weight: 300;
+    font-size: 12px;
     line-height: 44px;
     text-align: right;
     a {
       color: $dark-color;
-      font-weight: 600;
+      font-weight: 500;
     }
   }
   &.fixed {
@@ -822,8 +872,9 @@ div.page-third {
 }
 
 .status-svg {
-  stroke-dasharray: 10;
-  animation: dash 20s linear infinite;
+  stroke-dasharray: 750;
+  stroke-dashoffset: 1500;
+  animation: draw 5s ease-in infinite;
 }
 
 .container {
@@ -831,10 +882,19 @@ div.page-third {
 }
 
 .layer,
-.status-fail {
+.status-fail,
+.project-box,
+.project-item,
+.project-inner,
+.timeline-box {
   @include transition(all .5s ease-in-out);
 }
 
+.wow {
+  visibility: hidden;
+}
+
+@import "page.scss";
 @import "build.scss";
 @import "report.scss";
 @import "form.scss";

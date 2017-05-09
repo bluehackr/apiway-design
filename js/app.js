@@ -83,8 +83,13 @@ $(document).ready(function($){
 
   /* ---------- Timeline view on fullscreen ---------- */
   $('.timeline-box .btn-fullscreen').click(function(){
-    $('.project-box').toggle();
-    $('.timeline-box').toggleClass('is-fullscreen');
+    if ($('.timeline-box').hasClass('is-fullscreen')) {
+      $('.timeline-box').removeClass('is-fullscreen');
+      $('.project-box').removeClass('is-hide');
+    } else {
+      $('.project-box').addClass('is-hide');
+      $('.timeline-box').addClass('is-fullscreen');
+    }
   });
 
   /* ---------- Welcome Layer ----------- */
@@ -114,6 +119,18 @@ $(document).ready(function($){
 
   $('.page-third button:enabled').click(function(){
     window.location.href = './project.html';
+  });
+
+  // Scroll detecting navigation
+  lastScroll = 0;
+  $(window).on('scroll',function() {
+    var scroll = $(window).scrollTop();
+    if(lastScroll - scroll > 0) {
+      $(".page-gnb").slideDown();
+    } else if(scroll > 0){
+      $(".page-gnb").slideUp();
+    }
+    lastScroll = scroll;
   });
 
 });

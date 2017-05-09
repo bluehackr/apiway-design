@@ -1,0 +1,294 @@
+.page-landing {
+  @include pointGradientX();
+  background-attachment: fixed;
+  text-align: center;
+  .container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 880px;
+  }
+}
+.page-gnb {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  @include pointGradientX();
+  background-attachment: fixed;
+  .container {
+    padding: 36px 0 12px;
+    height: 54px;
+    line-height: 32px;
+  }
+  h1 {
+    float: left;
+    margin: 0;
+    img {
+      height: 24px;
+      vertical-align: middle;
+    }
+  }
+  nav {
+    float: right;
+  }
+  li {
+    float: left;
+    padding: 0 24px;
+    a {
+      position: relative;
+      display: inline-block;
+      border-bottom: 0 solid transparent;
+      color: $deco-color;
+      font-weight: 500;
+      font-size: 14px;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 4px;
+        background: $deco-color;
+        border-radius: 2px;
+      }
+    }
+    a:hover,
+    &.is-current a {
+      color: $white-color;
+      text-decoration: none;
+      &:after {
+        width: 100%;
+      }
+    }
+    &:last-child {
+      padding-right: 0;
+      a {
+        padding: 0 16px 2px;
+        border: 2px solid $deco-color;
+        background: $blind-color;
+        color: $white-color;
+        font-weight: 600;
+        font-size: 13px;
+        border-radius: 18px;
+        .fa {
+          padding-right: 6px;
+          color: $deco-color;
+        }
+        &:after {
+          display: none;
+        }
+        &:hover {
+          border-color: $white-color;
+          background: $white-color;
+          color: $black-color;
+          box-shadow: 0 1px 48px $deco-color;
+          .fa {
+            color: $fa-color;
+          }
+        }
+      }
+    }
+  }
+}
+section {
+  position: relative;
+  padding: 240px 0 60px;
+  min-height: 240px;
+  overflow: hidden;
+  @include clearFix;
+  &:nth-of-type(2):before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -60px;
+    width: 10px;
+    height: 240px;
+    background: url('../img/dash.svg') no-repeat left top;
+	  animation: animatedBG 20s linear infinite;
+  }
+}
+.svg-dash {
+  stroke-dasharray: 10;
+  animation: dash 20s linear infinite;
+}
+.page-landing-copy {
+  box-sizing: border-box;
+  float: left;
+  padding-left: 32px;
+  width: 50%;
+  line-height: 1.45;
+  text-align: left;
+  em {
+    display: block;
+    margin: 24px 2px 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: normal;
+    color: $deco-color;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  span {
+    display: block;
+    color: $white-color;
+    font-weight: 300;
+    font-size: 28px;
+    white-space: nowrap;
+    strong {
+      position: relative;
+      display: inline-block;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background: $deco-color;
+        border-radius: 1px;
+      }
+    }
+  }
+  a {
+    position: relative;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 0 36px 2px;
+    background: $white-color;
+    color: $black-color;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    border-radius: 24px;
+    box-shadow: 0 1px 24px $deco-color;
+    .fa {
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      margin-top: -7px;
+      color: $fa-color;
+      font-size: 14px;
+    }
+    &:hover {
+      text-decoration: none;
+      margin-top: 24px;
+      background: $deco-color;
+      color: $white-color;
+      box-shadow: 0 1px 48px $deco-color;
+      .fa {
+        color: $white-color;
+      }
+    }
+  }
+}
+.landing-before {
+  position: relative;
+  left: 50%;
+  margin-left: -180px;
+  width: 360px;
+  height: 240px;
+  background: $white-color;
+  border-radius: 6px;
+  overflow: hidden;
+  &-head {
+    position: relative;
+    border-bottom: 1px solid $fa-color;
+    color: $dark-color;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border: 1px solid shade($fa-color, 5%);
+      background: $fa-color;
+      border-radius: 6px;
+    }
+    &:after {
+      left: 25px;
+    }
+  }
+  svg {
+    path {
+      opacity: 0;
+      animation: codepreload 7.5s linear infinite;
+      &:nth-child(1) { animation-delay: 0s; }
+      &:nth-child(2) { animation-delay: 0.5s; }
+      &:nth-child(3) { animation-delay: 1s; }
+      &:nth-child(4) { animation-delay: 1.5s; }
+      &:nth-child(5) { animation-delay: 2s; }
+      &:nth-child(6) { animation-delay: 2.5s; }
+      &:nth-child(7) { animation-delay: 3s; }
+      &:nth-child(8) { animation-delay: 3.5s; }
+      &:nth-child(9) { animation-delay: 4s; }
+      &:nth-child(10) { animation-delay: 4.5s; }
+      &:nth-child(11) { animation-delay: 5s; }
+      &:nth-child(12) { animation-delay: 5.5s; }
+      &:nth-child(13) { animation-delay: 6s; }
+      &:nth-child(14) { animation-delay: 6.5s; }
+      &:nth-child(15) { animation-delay: 7s; }
+    }
+  }
+  &-error {
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -36px 0 0 -36px;
+    width: 72px;
+    height: 72px;
+    background: $error-color url('../img/i-error.svg') no-repeat center;
+    background-size: 8%;
+    text-indent: -9999px;
+    border-radius: 50%;
+    box-shadow: 0 0 24px rgba(0,0,0,.25);
+  }
+}
+.page-landing-visual {
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  width: 50%;
+  min-height: 100px;
+  .project-item {
+    float: none;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -180px;
+    width: 340px;
+    opacity: .5 !important;
+    &:first-child {
+      z-index: 5;
+      margin-top: 35px;
+      margin-left: -150px;
+      opacity: 1 !important;
+    }
+  }
+  &:hover {
+    .project-item:first-child .project-inner {
+      margin-top: 0;
+      box-shadow: 0 0 72px $deco-color;
+    }
+    .project-item:last-child .project-inner {
+      margin-top: 60px;
+    }
+  }
+}
+
+.page-before {
+  .page-landing-visual {
+    float: right;
+  }
+}
+
+@keyframes codepreload {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+}
