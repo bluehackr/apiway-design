@@ -48,6 +48,7 @@ HTML, CSS, Jquery 단순 디자인 프로토타입입니다.
 
 ## Next idea + memo
 
+- [**<u>Foundation Framework migration</u>**](https://foundation.zurb.com/)
 - **Time Widget** on *monitoring* (Visible option)
 - **Report export option** (send email/save to html, pdf...)
 - **Project visible/sorting control** on *monitoring*
@@ -58,6 +59,7 @@ HTML, CSS, Jquery 단순 디자인 프로토타입입니다.
 - **Search Suggest UI**
 - **Monitoring Project UI retouch**
   (status be smaller & email application list style)
+- **Empty Project content** add
 
 
 
