@@ -1,0 +1,126 @@
+/* Functions */
+@function tint($color, $percentage) {
+  @return mix(#FFF, $color, $percentage);
+}
+@function shade($color, $percentage) {
+  @return mix(#000, $color, $percentage);
+}
+
+/* Mixins */
+@mixin gradientY($from, $to) {
+  background-color: $from;
+  background-image: -moz-linear-gradient($from, $to);
+  background-image: -webkit-linear-gradient($from, $to);
+  background-image: -o-linear-gradient($from, $to);
+  background-image: inear-gradient($from, $to);
+}
+@mixin gradientX($from, $to) {
+  background-color: $from;
+  background-image: -moz-linear-gradient(right, $from, $to);
+  background-image: -webkit-linear-gradient(left, $from, $to);
+  background-image: -o-linear-gradient(right, $from, $to);
+  background-image: linear-gradient(to right, $from, $to);
+}
+@mixin pointGradientX {
+  background: $pass-color;
+  background: -webkit-linear-gradient(to right, $pass-color, $error-color);
+  background: linear-gradient(to right, $pass-color, $error-color);
+}
+@mixin pointGradientY {
+  background: $pass-color;
+  background: -webkit-linear-gradient($pass-color, $error-color);
+  background: linear-gradient($pass-color, $error-color);
+}
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin clearFix() {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden;
+  }
+  & { *zoom: 1; }
+}
+@mixin borderRadius {
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+@mixin borderRadiusS {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+@mixin boxShadow {
+  box-shadow: 0 1px 12px rgba($black-color, .05);
+  -moz-box-shadow: 0 1px 12px rgba($black-color, .05);
+  -webkit-box-shadow: 0 1px 12px rgba($black-color, .05);
+}
+@mixin boxShadowDeep {
+  box-shadow: 0 1px 12px rgba($black-color, .25);
+  -moz-box-shadow: 0 1px 12px rgba($black-color, .25);
+  -webkit-box-shadow: 0 1px 12px rgba($black-color, .25);
+}
+@mixin textClip { /* long text lendering ... */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin codeFont {
+  font-weight: 400;
+  font-family: "SF Mono Regular", "Consolas", "Monaco", "Andale Mono", courier;
+}
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder {@content}
+  ::-moz-placeholder {@content}
+  :-ms-input-placeholder {@content}
+}
+
+/* css animation */
+@keyframes dash {
+  to { stroke-dashoffset: -1000; }
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blinker {
+  50% { opacity: 1; }
+  75% { opacity: .4; }
+  85% { opacity: 1; }
+}
+@keyframes animatedBG {
+	from { background-position: 0 100%; }
+	to { background-position: 0 0; }
+}
+
+/* color set */
+$bg-color: #F0F2FA;
+$point-color: #9E79DF;
+$dark-color: #5E6C8C;
+$font-color: darken($dark-color, 5%);
+$font-sub-color: tint($dark-color, 25%);
+$black-color: darken($dark-color, 25%);
+$fa-color: tint($font-color, 75%);
+$deco-color: rgba(#FFF, .5);
+$blind-color: rgba(#000, .15);
+$error-color: #C858E2;
+$pass-color: #2657EB;
+$canvas-color: #FFF;
+$white-color: #FFF;
+$base-hover-color: lighten($bg-color, 2%);

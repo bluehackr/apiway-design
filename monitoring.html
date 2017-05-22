@@ -23,275 +23,424 @@
 
 <body class="app monitoring">
 
-<div class="app-wrap">
+  <div class="app-wrap">
 
-  <!-- app header with GNB -->
-  <header class="app-header">
-    <h1><img src="./img/logo-w.png" alt="apiway"></h1>
-    <nav>
-      <ul class="gnb">
-        <li class="is-current"><a href="./monitoring.html"><i class="fa fa-tachometer"></i>Monitoring</a></li>
-        <li><a href="./build.html"><i class="fa fa-play-circle"></i>Build</a></li>
-        <li><a href="./project.html"><i class="fa fa-briefcase"></i>Project</a></li>
-        <li><a href="./report.html"><i class="fa fa-file-text"></i>Reports</a></li>
-      </ul>
-      <ul class="snb">
-        <li><a href="#"><i class="fa fa-book"></i>Docs</a></li>
-        <li><a href="#"><i class="fa fa-commenting"></i>Help</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- app header with GNB -->
+    <header class="app-header">
+      <h1><img src="./img/logo-w.png" alt="apiway"></h1>
+      <nav>
+        <ul class="gnb">
+          <li class="is-current"><a href="./monitoring.html"><i class="fa fa-tachometer"></i>Monitoring</a></li>
+          <li><a href="./build.html"><i class="fa fa-play-circle"></i>Build</a></li>
+          <li><a href="./project.html"><i class="fa fa-briefcase"></i>Project</a></li>
+          <li><a href="./report.html"><i class="fa fa-file-text"></i>Reports</a></li>
+        </ul>
+        <ul class="snb">
+          <li><a href="#"><i class="fa fa-book"></i>Docs</a></li>
+          <li><a href="#"><i class="fa fa-commenting"></i>Help</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- app topper with Search, Account -->
-  <div class="app-topper">
+    <!-- app topper with Search, Account -->
+    <div class="app-topper">
 
-    <div class="search-box">
-      <form action="">
-        <input type="search" placeholder="Search Branch, Project.."/>
-        <input type="submit" hidden="hidden" />
-      </form>
+      <div class="search-box">
+        <form action="">
+          <input type="search" placeholder="Search Branch, Project.."/>
+          <input type="submit" hidden="hidden" />
+        </form>
+      </div>
+
+      <div class="account-box">
+        <ul class="account-nav">
+          <li><a href="#"><i class="fa fa-bell"></i><span>Notification</a></li>
+          <li><a href="#"><i class="fa fa-cog"></i><span>Setting</a></li>
+        </ul>
+        <a href="#" class="account-name">
+          <div class="thumb-small"><img src="./img/thumb.jpg" alt="thumbnail" width="32"></div>
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <div class="layer layer-account">
+          <ul class="layer-nav">
+            <li>
+              <div class="account-info">
+                <div class="thumb"><img src="./img/thumb.jpg" alt="thumbnail" width="60"></div>
+                <strong>bluehackmaster</strong>
+                <em>master@bluehack.net</em>
+              </div>
+            </li>
+            <li><a href="login.html"><i class="fa fa-sign-out"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
-    <div class="account-box">
-      <a href="#" class="account-name">
-        <img src="./img/thumb.jpg" alt="thumbnail" width="44">
-        <i class="fa fa-caret-down"></i>
-      </a>
-      <div class="layer account-nav">
-        <ul>
-          <li>
-            <div class="account-info">
-              <img src="./img/thumb.jpg" alt="thumbnail" width="60">
-              <strong>bluehackmaster</strong>
-              <em>master@bluehack.net</em>
+    <div class="app-container">
+
+      <div class="project-box">
+
+        <div class="project-item">
+          <div class="project-inner">
+            <div class="project-header">
+              <button class="ibtn btn-project-qsetting">
+                <i class="fa fa-cog"></i>
+                <span>Quick setting</span>
+              </button>
+              <a href="./build.html"><strong>bluehackr / WalkOn-API / master</strong></a>
+              <ul class="project-info">
+                <li><strong>#182</strong> commits</li>
+                <li><strong>19</strong> test cases</li>
+              </ul>
             </div>
+            <div class="project-status status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="102" viewBox="0 0 1083 102">
+                <g class="status-svg" fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".8">
+                  <path d="M0 50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50 561 20 581 90 601 0 621 100 641 10 661 80 671 50 764 50 848 50 858 20 878 90 898 0 918 100 938 10 958 80 968 50 1081 50"/>
+                </g>
+              </svg>
+              <div class="project-time">
+                <div class="project-time-repeat">
+                  <i class="fa fa-clock-o"></i>
+                  repeat <strong>5 minutes</strong>
+                </div>
+                <div class="project-time-last">
+                  <i class="fa fa-calendar-check-o"></i>
+                  1 minute ago
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-inner">
+            <div class="project-header">
+              <button class="ibtn btn-project-qsetting">
+                <i class="fa fa-cog"></i>
+                <span>Quick setting</span>
+              </button>
+              <a href="./build.html"><strong>bluehackr / WalkOn-API / master</strong></a>
+              <ul class="project-info">
+                <li><strong>#182</strong> commits</li>
+                <li><strong>19</strong> test cases</li>
+              </ul>
+            </div>
+            <div class="project-status status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="102" viewBox="0 0 1083 102">
+                <g class="status-svg" fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".8">
+                  <path d="M0 50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50 561 20 581 90 601 0 621 100 641 10 661 80 671 50 764 50 848 50 858 20 878 90 898 0 918 100 938 10 958 80 968 50 1081 50"/>
+                </g>
+              </svg>
+              <div class="project-time">
+                <div class="project-time-repeat">
+                  <i class="fa fa-clock-o"></i>
+                  repeat <strong>5 minutes</strong>
+                </div>
+                <div class="project-time-last">
+                  <i class="fa fa-calendar-check-o"></i>
+                  1 minute ago
+                </div>
+              </div>
+              <a href="build-detail.html#log" title="Unread past failed log" class="unread animated pulse infinite">1</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-inner">
+            <div class="project-header">
+              <button class="ibtn btn-project-qsetting">
+                <i class="fa fa-cog"></i>
+                <span>Quick setting</span>
+              </button>
+              <a href="./build.html"><strong>bluehackr / WalkOn-API / master</strong></a>
+              <ul class="project-info">
+                <li><strong>#182</strong> commits</li>
+                <li><strong>19</strong> test cases</li>
+              </ul>
+            </div>
+            <div class="project-status status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="102" viewBox="0 0 1083 102">
+                <g class="status-svg" fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".8">
+                  <path d="M0 50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50 561 20 581 90 601 0 621 100 641 10 661 80 671 50 764 50 848 50 858 20 878 90 898 0 918 100 938 10 958 80 968 50 1081 50"/>
+                </g>
+              </svg>
+              <div class="project-time">
+                <div class="project-time-repeat">
+                  <i class="fa fa-clock-o"></i>
+                  repeat <strong>5 minutes</strong>
+                </div>
+                <div class="project-time-last">
+                  <i class="fa fa-calendar-check-o"></i>
+                  1 minute ago
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-inner">
+            <div class="project-header">
+              <button class="ibtn btn-project-qsetting">
+                <i class="fa fa-cog"></i>
+                <span>Quick setting</span>
+              </button>
+              <a href="./build.html"><strong>bluehackr / WalkOn-API / master</strong></a>
+              <ul class="project-info">
+                <li><strong>#182</strong> commits</li>
+                <li><strong>19</strong> test cases</li>
+              </ul>
+            </div>
+            <div class="project-status status-fail">
+              <button class="status-alert animated infinite pulse" type="button">
+                <strong>error</strong>
+                <span>Rebuild?</span>
+              </button>
+              <div class="project-time">
+                <div class="project-time-repeat">
+                  <i class="fa fa-clock-o"></i>
+                  repeat <strong>5 minutes</strong>
+                </div>
+                <div class="project-time-last">
+                  <i class="fa fa-calendar-check-o"></i>
+                  1 minute ago
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-inner">
+            <div class="project-header">
+              <button class="ibtn btn-project-qsetting">
+                <i class="fa fa-cog"></i>
+                <span>Quick setting</span>
+              </button>
+              <a href="./build.html"><strong>bluehackr / WalkOn-API / master</strong></a>
+              <ul class="project-info">
+                <li><strong>#182</strong> commits</li>
+                <li><strong>19</strong> test cases</li>
+              </ul>
+            </div>
+            <div class="project-status status-pause">
+              <button type="button" class="status-alert">
+                <strong>pause</strong>
+                <span>Rebuild?</span>
+              </button>
+              <div class="project-time">
+                <div class="project-time-repeat">
+                  <i class="fa fa-clock-o"></i>
+                  repeat <strong>5 minutes</strong>
+                </div>
+                <div class="project-time-last">
+                  <i class="fa fa-calendar-check-o"></i>
+                  1 minute ago
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-inner">
+          <div class="timeline-header">
+            <button type="button" class="ibtn btn-fullscreen" title="view on fullscreen"><i class="fa fa-expand"></i></button>
+            <select>
+              <option>All</option>
+              <option>Failed</option>
+            </select>
+            <h4>Timeline</h4>
+          </div>
+          <div class="timeline-log">
+            <ul>
+              <li class="status-ing">
+                <strong class="log-status">ing...</strong>
+                <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mocha dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+              <li class="status-pass">
+                <strong class="log-status">Pass</strong>
+                <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mocha dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+              <li class="status-pass">
+                <strong class="log-status">Pass</strong>
+                <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mocha dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+              <li class="status-pass">
+                <strong class="log-status">Pass</strong>
+                <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+              <li class="status-fail">
+                <strong class="log-status">Fail</strong>
+                <a href="#" class="log-name" title="bluehackr / WalkOn-test-longer-API / master #32">bluehackr / WalkOn-test-longer-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mocha longer longer longer dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+              <li class="status-pass">
+                <strong class="log-status">Pass</strong>
+                <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+              <li class="status-pass">
+                <strong class="log-status">Pass</strong>
+                <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+              <li class="status-pass">
+                <strong class="log-status">Pass</strong>
+                <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+              <li class="status-pass">
+                <strong class="log-status">Pass</strong>
+                <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
+                <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
+                <span class="log-date">13:30:00</span>
+                <span class="log-date">Running 01:42</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blind Background -->
+      <div class="blind"></div>
+
+      <!-- Layer : Add First Project -->
+      <div class="layer layer-welcome">
+        <div class="layer-content">
+          <div class="welcome">
+            <div class="thumb"><img src="./img/thumb.jpg" alt="thumbnail" width="40"></div>
+            <strong>Welcome to APIWAY</strong>
+            <p>Let's build the first project now with GitHub.</p>
+          </div>
+          <div class="repository-list">
+            <ul>
+              <li>
+                <a href="#">
+                  <strong>apiway-api</strong>
+                  <i class="fa fa-code-fork"></i>
+                  <i class="fa fa-linux"></i>
+                </a>
+                <button type="button" class="btn btn-red"><i class="fa fa-minus"></i>Restore Project</button>
+              </li>
+              <li>
+                <a href="#">
+                  <strong>apiway-design</strong>
+                  <i class="fa fa-code-fork"></i>
+                  <i class="fa fa-linux"></i>
+                </a>
+                <button type="button" class="btn btn-red"><i class="fa fa-minus"></i>Restore Project</button>
+              </li>
+              <li>
+                <a href="#">
+                  <strong>swallaby-api</strong>
+                  <i class="fa fa-code-fork"></i>
+                  <i class="fa fa-apple"></i>
+                </a>
+                <button type="button" class="btn btn-blue"><i class="fa fa-plus"></i>Build Project</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="layer-footer">
+          <button type="button" class="btn-text">Skip now <i class="fa fa-long-arrow-right"></i></button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="app-side app-center">
+      <div class="app-side-header">
+        <h4>Notification</h4>
+        <button type="button" class="btn-text">Readed all</button>
+      </div>
+      <div class="app-side-container">
+        <ul class="app-center-list">
+          <li>
+            <div class="thumb-small"><img src="./img/thumb.jpg" width="20"></div>
+            <a href="#">APIWAY-API / Monitor-API</a>
+            <span>rebuilded.</span>
+            <em>now</em>
           </li>
-          <li><a href="#"><i class="fa fa-cog"></i>Account setting</a></li>
-          <li><a href="#"><i class="fa fa-bell"></i>Notification</a></li>
-          <li><a href="login.html"><i class="fa fa-sign-out"></i>Sign out</a></li>
+          <li>
+            <div class="thumb-small"><img src="./img/thumb.jpg" width="20"></div>
+            <a href="#">APIWAY-API / Monitor-API</a>
+            <span>detected new testcase.</span>
+            <em>now</em>
+          </li>
+          <li>
+            <div class="thumb-small"><img src="./img/thumb.jpg" width="20"></div>
+            <a href="#">APIWAY-API / Monitor-API</a>
+            <span>rebuilded.</span>
+            <em>now</em>
+          </li>
+          <li>
+            <div class="thumb-small"><img src="./img/thumb.jpg" width="20"></div>
+            <a href="#">Swallaby-API / WalkOn-API</a>
+            <span>paused.</span>
+            <em>now</em>
+          </li>
+          <li>
+            <button type="button" class="btn-text">Load more</button>
+          </li>
         </ul>
       </div>
     </div>
 
-  </div>
+    <footer class="app-footer">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <h6 class="copyright">
+          &copy; 2017 <a href="https://apiway.io/">apiway.io</a>
+        </h6>
+    </footer>
 
-  <div class="app-container">
-
-    <div class="project-box">
-
-      <div class="project-item">
-        <div class="project-inner">
-          <div class="project-header">
-            <button class="ibtn btn-project-qsetting">
-              <i class="fa fa-cog"></i>
-              <span>Quick setting</span>
-            </button>
-            <a href="./build.html">
-              <i class="fa fa-github"></i>
-              <strong>bluehackr / WalkOn-API / master</strong>
-            </a>
-            <ul class="project-info">
-              <li><strong>#182</strong> commits</li>
-              <li><strong>19</strong> test cases</li>
-            </ul>
-          </div>
-          <div class="project-status status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" viewBox="0 0 479 102">
-              <g class="status-svg" fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".8">
-                <path d="M0,50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50"/>
-              </g>
-            </svg>
-          </div>
-        </div>
+    <div class="layer-building layer">
+      <div class="layer-header">
+        <h4><i class="fa fa-github"></i> bluehackr / WalkOn-API / master</h4>
       </div>
-
-      <div class="project-item">
-        <div class="project-inner">
-          <div class="project-header">
-            <button class="ibtn btn-project-qsetting">
-              <i class="fa fa-cog"></i>
-              <span>Quick setting</span>
-            </button>
-            <a href="./build.html">
-              <i class="fa fa-github"></i>
-              <strong>bluehackr / WalkOn-API / master</strong>
-            </a>
-            <ul class="project-info">
-              <li><strong>#182</strong> commits</li>
-              <li><strong>19</strong> test cases</li>
-            </ul>
-          </div>
-          <div class="project-status status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" viewBox="0 0 479 102">
-              <g class="status-svg" fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".8">
-                <path d="M0,50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50"/>
-              </g>
-            </svg>
-          </div>
+      <div class="layer-content">
+        <div class="alert"><i class="fa fa-exclamation-triangle"></i> Please wait the rebuild progress.</div>
+        <div class="progress-bar">
+          <svg width="150px" viewBox="0 0 100 50" fill="none" stroke="#EEE">
+            <path d="M 50,50 m -47,0 a 47,47 0 1 1 94,0" stroke-width="2"></path>
+            <path d="M 50,50 m -47,0 a 47,47 0 1 1 94,0" stroke-width="6"></path>
+          </svg>
         </div>
+        <div class="progress-bar-desc">Rebuild project ... longer description..</div>
       </div>
-
-      <div class="project-item">
-        <div class="project-inner">
-          <div class="project-header">
-            <button class="ibtn btn-project-qsetting">
-              <i class="fa fa-cog"></i>
-              <span>Quick setting</span>
-            </button>
-            <a href="./build.html">
-              <i class="fa fa-github"></i>
-              <strong>bluehackr / Swallaby-API / dev</strong>
-            </a>
-            <ul class="project-info">
-              <li><strong>#182</strong> commits</li>
-              <li><strong>19</strong> test cases</li>
-            </ul>
-          </div>
-          <div class="project-status status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" viewBox="0 0 479 102">
-              <g class="status-svg" fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".8">
-                <path d="M0,50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50"/>
-              </g>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-item">
-        <div class="project-inner">
-          <div class="project-header">
-            <button class="ibtn btn-project-qsetting">
-              <i class="fa fa-cog"></i>
-              <span>Quick setting</span>
-            </button>
-            <a href="./build.html">
-              <i class="fa fa-github"></i>
-              <strong>bluehackr / WalkOn-API / master</strong>
-            </a>
-            <ul class="project-info">
-              <li><strong>#182</strong> commits</li>
-              <li><strong>19</strong> test cases</li>
-            </ul>
-          </div>
-          <div class="project-status status-fail">
-            <span class="status-alert animated infinite pulse">error</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-item">
-        <div class="project-inner">
-          <div class="project-header">
-            <button class="ibtn btn-project-qsetting">
-              <i class="fa fa-cog"></i>
-              <span>Quick setting</span>
-            </button>
-            <a href="./build.html">
-              <i class="fa fa-github"></i>
-              <strong>bluehackr / WalkOn-API / master</strong>
-            </a>
-            <ul class="project-info">
-              <li><strong>#182</strong> commits</li>
-              <li><strong>19</strong> test cases</li>
-            </ul>
-          </div>
-          <div class="project-status status-pause">
-            <span class="status-alert">pause</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-inner">
-        <div class="timeline-header">
-          <button type="button" class="ibtn btn-fullscreen" title="view on fullscreen"><i class="fa fa-expand"></i></button>
-          <button type="button" class="ibtn btn-setting" title="timeline setting"><i class="fa fa-cog"></i></button>
-          <h4>Timeline</h4>
-        </div>
-        <div class="timeline-log">
-          <ul>
-            <li class="status-ing">
-              <strong class="log-status">ing...</strong>
-              <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mocha dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-            <li class="status-pass">
-              <strong class="log-status">Pass</strong>
-              <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mocha dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-            <li class="status-pass">
-              <strong class="log-status">Pass</strong>
-              <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mocha dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-            <li class="status-pass">
-              <strong class="log-status">Pass</strong>
-              <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-            <li class="status-fail">
-              <strong class="log-status animated infinite flash">Fail</strong>
-              <a href="#" class="log-name" title="bluehackr / WalkOn-test-longer-API / master #32">bluehackr / WalkOn-test-longer-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mocha longer longer longer dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-            <li class="status-pass">
-              <strong class="log-status">Pass</strong>
-              <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-            <li class="status-pass">
-              <strong class="log-status">Pass</strong>
-              <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-            <li class="status-pass">
-              <strong class="log-status">Pass</strong>
-              <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-            <li class="status-pass">
-              <strong class="log-status">Pass</strong>
-              <a href="#" class="log-name">bluehackr / WalkOn-API / master #32</a>
-              <span class="log-desc">[WalkON-aPI] mochaawesome dependencies added.</span>
-              <span class="log-date">13:30:00</span>
-              <span class="log-date">Running 01:42</span>
-            </li>
-          </ul>
-        </div>
+      <div class="layer-footer">
+        <button type="button" class="btn-text" disabled="disabled"><i class="fa fa-check"></i> Done</button>
       </div>
     </div>
 
   </div>
-
-  <footer class="app-footer">
-      <a href="#">Terms of Service</a>
-      <a href="#">Privacy</a>
-      <a href="#">Cookies</a>
-      <h6 class="copyright">
-        &copy; 2017 <a href="https://apiway.io/">apiway.io</a>
-      </h6>
-  </footer>
-
-</div>
 
 <!-- jquery and necessary plugins -->
 <script src="js/libs/jquery.min.js"></script>

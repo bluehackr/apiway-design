@@ -1,109 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500');
-
-/* function and mixin */
-@function tint($color, $percentage) {
-  @return mix(#FFF, $color, $percentage);
-}
-@function shade($color, $percentage) {
-  @return mix(#000, $color, $percentage);
-}
-@mixin gradientY($from, $to) {
-  background-color: $from;
-  background-image: -moz-linear-gradient($from, $to);
-  background-image: -webkit-linear-gradient($from, $to);
-  background-image: -o-linear-gradient($from, $to);
-  background-image: inear-gradient($from, $to);
-}
-@mixin gradientX($from, $to) {
-  background-color: $from;
-  background-image: -moz-linear-gradient(right, $from, $to);
-  background-image: -webkit-linear-gradient(left, $from, $to);
-  background-image: -o-linear-gradient(right, $from, $to);
-  background-image: linear-gradient(to right, $from, $to);
-}
-@mixin pointGradientX {
-  background: $pass-color;
-  background: -webkit-linear-gradient(to right, $pass-color, $error-color);
-  background: linear-gradient(to right, $pass-color, $error-color);
-}
-@mixin pointGradientY {
-  background: $pass-color;
-  background: -webkit-linear-gradient($pass-color, $error-color);
-  background: linear-gradient($pass-color, $error-color);
-}
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-@mixin clearFix(){
-  &:before, &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    display: block;
-    clear: both;
-    height: 1px;
-    margin-top: -1px;
-    visibility: hidden;
-  }
-  & { *zoom: 1; }
-}
-@mixin textClip { /* long text lendering ... */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-@mixin codeFont {
-  font-weight: 400;
-  font-family: "SF Mono Regular", "Consolas", "Monaco", "Andale Mono", courier;
-}
-@mixin placeholder {
-  ::-webkit-input-placeholder {@content}
-  :-moz-placeholder {@content}
-  ::-moz-placeholder {@content}
-  :-ms-input-placeholder {@content}
-}
-
-/* css animation */
-@keyframes dash {
-  to { stroke-dashoffset: -1000; }
-}
-@keyframes draw {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-@keyframes blinker {
-  50% { opacity: 1; }
-  75% { opacity: .4; }
-  85% { opacity: 1; }
-}
-@keyframes animatedBG {
-	from { background-position: 0 100%; }
-	to { background-position: 0 0; }
-}
-
-/* color set */
-$bg-color: #F0F2FA;
-$point-color: #9E79DF;
-$dark-color: #5E6C8C;
-$font-color: darken($dark-color, 5%);
-$font-sub-color: tint($dark-color, 25%);
-$black-color: darken($dark-color, 25%);
-$fa-color: tint($font-color, 75%);
-$deco-color: rgba(#FFF, .4);
-$blind-color: rgba(#000, .15);
-$error-color: #C858E2;
-$pass-color: #2657EB;
-$canvas-color: #FFF;
-$white-color: #FFF;
-$base-hover-color: lighten($bg-color, 2%);
+@import "core.scss";
 
 /* setting */
 * {
@@ -166,83 +62,13 @@ body {
   }
 }
 
-div.page-third {
-  display: table-cell;
-  @include pointGradientX();
-  vertical-align: middle;
-  text-align: center;
-  > footer {
-    z-index: 1;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    padding: 0 32px;
-    width: 100%;
-    background: $blind-color;
-    font-size: 12px;
-    line-height: 48px;
-    text-align: left;
-    > a {
-      margin-right: 16px;
-      color: $deco-color;
-    }
-    h6 {
-      float: right;
-      color: $deco-color;
-      font-weight: 500;
-      font-size: 13px;
-      a {
-        color: $white-color;
-        font-weight: 500;
-      }
-    }
-    a:hover {
-      color: $white-color;
-      text-decoration: none;
-    }
-  }
-}
-
-.pane {
-  z-index: 2;
-  position: relative;
-  margin: 0 auto;
-  max-width: 380px;
-  background: $white-color;
-  border-radius: 9px;
-  box-shadow: 0 4px 18px shade($dark-color, 10%);
-  overflow: hidden;
-  .pane-header {
-      padding: 64px 0 32px;
-      h1 {
-        margin: 0;
-        img {
-          width: 120px;
-        }
-      }
-  }
-  .container {
-    padding: 0 40px 40px;
-  }
-  .pane-footer {
-    padding-bottom: 2px;
-    border-top: 1px solid shade($bg-color, 2%);
-    background: $base-hover-color;
-    font-size: 14px;
-    line-height: 48px;
-    a {
-      color: $black-color;
-      font-weight: 500;
-    }
-  }
-}
-
 .app-wrap {
+  position: relative;
   min-width: 1280px;
   min-height: 100%;
 }
 
+/* APP Header - GNB, Logo */
 .app-header {
   z-index: 99;
   position: fixed;
@@ -332,6 +158,7 @@ div.page-third {
   }
 }
 
+/* APP Topper - Account, Notification, Setting, Search */
 .app-topper {
   z-index: 5;
   position: fixed;
@@ -341,7 +168,7 @@ div.page-third {
   height: 54px;
   background: $canvas-color;
   line-height: 52px;
-  box-shadow: 0 1px 24px shade($bg-color, 10%);
+  @include boxShadow;
   .search-box {
     position: relative;
     padding-left: 18px;
@@ -352,14 +179,30 @@ div.page-third {
     right: 0;
     top: 0;
     text-align: right;
+    .account-nav {
+      float: left;
+      li {
+        float: left;
+        border-left: 1px solid $base-hover-color;
+        a {
+          display: block;
+          padding: 0 20px;
+          .fa {
+            font-size: 18px;
+          }
+          span { display: none; }
+        }
+      }
+    }
     .account-name {
       float: right;
-      padding: 0 12px 2px 24px;
+      padding: 0 12px 2px 20px;
+      border-left: 1px solid $base-hover-color;
       line-height: 52px;
       overflow: hidden;
-      img {
+      .thumb-small {
+        display: inline-block;
         margin-right: 12px;
-        width: 36px;
         border-radius: 50%;
         vertical-align: middle;
         overflow: hidden;
@@ -373,7 +216,7 @@ div.page-third {
         }
       }
     }
-    .account-nav {
+    .layer-account {
       display: none;
       z-index: 1;
       position: fixed;
@@ -382,18 +225,13 @@ div.page-third {
       width: 240px;
       background: $canvas-color;
       text-align: left;
-      border-radius: 9px;
       box-shadow: 0 1px 24px rgba($dark-color, .25);
-      overflow: hidden;
       .account-info {
         padding-bottom: 24px;
         line-height: 24px;
         text-align: center;
-        img {
-          display: block;
+        .thumb {
           margin: 32px auto 12px;
-          width: 60px;
-          border-radius: 50%;
         }
         strong {
           display: block;
@@ -407,34 +245,13 @@ div.page-third {
           font-size: 12px;
         }
       }
-      a {
-        position: relative;
-        display: block;
-        padding-left: 48px;
-        height: 44px;
-        border-top: 1px solid tint($bg-color, 5%);
-        line-height: 42px;
-        .fa {
-          position: absolute;
-          left: 20px;
-          top: 50%;
-          margin-top: -8px;
-          margin-right: 12px;
-          color: $fa-color;
-        }
-        &:hover {
-          text-decoration: none;
-          background: $base-hover-color;
-          .fa {
-            color: $font-color;
-          }
-        }
-      }
     }
   }
 }
 
+/* APP Container */
 .app-container {
+  display: none;
   position: relative;
   box-sizing: border-box;
   margin-left: 90px;
@@ -444,6 +261,33 @@ div.page-third {
   overflow: hidden;
 }
 
+/* APP sidebar */
+.app-side {
+  position: fixed;
+  right: 0;
+  top: 54px;
+  width: 300px;
+  height: 100%;
+  background: $base-hover-color;
+  .app-side-header {
+    padding: 0 18px 1px;
+    background: $white-color;
+    font-size: 12px;
+    line-height: 28px;
+    text-transform: uppercase;
+    .btn-text {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  li {
+    padding: 12px 18px;
+    border-bottom: 1px solid $bg-color;
+  }
+}
+
+/* Project Card */
 .project-box {
   float: left;
   width: 60%;
@@ -459,23 +303,26 @@ div.page-third {
   .project-inner {
     margin: 18px 0 0 18px;
     background: $canvas-color;
-    border-radius: 9px;
-    box-shadow: 0 0 24px rgba($dark-color, .15);
+    @include borderRadius;
+    @include boxShadow;
+    overflow: hidden;
   }
   .project-header {
     position: relative;
-    padding: 14px 18px;
+    padding: 16px 24px 15px;
     line-height: 21px;
     .btn-project-qsetting {
       position: absolute;
       right: 0;
       top: 0;
     }
-    a {
+    > a {
       display: block;
-      padding-left: 24px;
+      margin-right: 20px;
+      padding: 0 0 2px;
       color: $black-color;
-      font-size: 14px;
+      font-size: 16px;
+      word-spacing: 1px;
       @include textClip;
       .fa-github {
         position: absolute;
@@ -485,74 +332,114 @@ div.page-third {
         font-size: 18px;
       }
     }
-    ul {
-      margin: 0 0 0 24px;
+    .project-info {
+      color: tint($font-color, 25%);
       font-size: 12px;
+      @include borderRadiusS;
       li {
         display: inline;
-      }
-      strong {
-        color: $dark-color;
       }
     }
   }
   .project-status {
     position: relative;
-    height: 120px;
-    line-height: 120px;
+    padding-top: 102px;
+    height: 40px;
+    background: url('data:image/svg+xml;utf8,
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="102" viewBox="0 0 1083 102">
+        <g class="status-svg" fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".2">
+          <path d="M0 50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50 561 20 581 90 601 0 621 100 641 10 661 80 671 50 764 50 848 50 858 20 878 90 898 0 918 100 938 10 958 80 968 50 1081 50"/>
+        </g>
+      </svg>') no-repeat center 0;
     text-align: center;
     overflow: hidden;
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 6px 6px;
+    box-shadow: inset 0 1px 12px $blind-color;
     &.status-pass {
-      background: $pass-color url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" viewBox="0 0 479 102">
-        <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".2">
-          <path d="M0,50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50"/>
-        </g>
-      </svg>') no-repeat center;
+      background-color: $pass-color;
       background-size: 100% 100px;
     }
     &.status-fail {
-      background: $error-color url('../img/status-fail.svg') repeat-x center;
+      background-color: $error-color;
+      background-size: 100% 100px;
       .status-alert {
-        z-index: 1;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin: -36px 0 0 -36px;
-        width: 72px;
-        height: 72px;
         background: $error-color url('../img/i-error.svg') no-repeat center;
         background-size: 8%;
-        text-indent: -9999px;
-        border-radius: 50%;
-        box-shadow: 0 0 24px rgba(0,0,0,.25);
       }
     }
     &.status-pause {
-      background: $dark-color url('../img/status-pause.svg') repeat-x center;
+      background: $dark-color;
       .status-alert {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin: -36px 0 0 -36px;
-        width: 72px;
-        height: 72px;
         background: $dark-color url('../img/i-pause.svg') no-repeat center;
         background-size: 20%;
-        text-indent: -9999px;
-        border-radius: 50%;
-        box-shadow: 0 0 24px rgba(0,0,0,.25);
+      }
+    }
+    button {
+      z-index: 1;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -52px 0 0 -32px;
+      width: 64px;
+      height: 64px;
+      @include boxShadowDeep;
+      border-radius: 50%;
+      strong, span { display: none; }
+      span {
+        display: none;
+        color: $white-color;
+        font-size: 14px;
+      }
+      &:hover {
+        margin: -42px 0 0 -55px;
+        padding: 0 0 2px 28px;
+        width: 110px;
+        height: 42px;
+        background-color: $blind-color !important;
+        background-image: url('../img/i-rebuild.svg') !important;
+        background-position: 12px center !important;
+        background-size: 18px !important;
+        @include borderRadius;
+        box-shadow: inset 0 0 1px $blind-color, 0 0 24px rgba($black-color, .25);
+        span {
+          display: block;
+        }
+        &:active {
+          box-shadow: inset 0 0 1px $blind-color, 0 0 24px rgba($black-color, .25);
+        }
       }
     }
     svg {
       position: absolute;
       left: 0;
       top: 50%;
-      margin-top: -50px;
+      margin-top: -72px;
+    }
+    .project-time {
+      padding: 0 18px;
+      height: 40px;
+      color: $deco-color;
+      font-size: 11px;
+      line-height: 38px;
+      background: $blind-color;
+      &-repeat {
+        float: left;
+      }
+      &-last {
+        float: right;
+      }
+      .fa {
+        display: inline-block;
+        margin: 0 4px 2px 0;
+        font-size: 16px;
+        line-height: 1;
+        vertical-align: middle;
+      }
     }
   }
 }
 
+/* Timeline Card */
 .timeline-box {
   float: right;
   width: 40%;
@@ -563,12 +450,12 @@ div.page-third {
   .timeline-inner {
     margin: 18px;
     background: $canvas-color;
-    border-radius: 9px;
-    box-shadow: 0 0 24px rgba($dark-color, .15);
+    @include borderRadius;
+    @include boxShadow;
   }
   .timeline-header {
     position: relative;
-    border-radius: 8px;
+    @include borderRadius;
     h4 {
       text-transform: uppercase;
       margin: 0;
@@ -585,12 +472,16 @@ div.page-third {
       width: 40px;
       line-height: 40px;
     }
-    .btn-setting {
+    select {
       position: absolute;
       right: 0;
       top: 0;
-      width: 40px;
-      line-height: 40px;
+      border: 0;
+      height: 40px;
+      &:hover, &:active, &:focus {
+        background-color: $base-hover-color;
+        box-shadow: none;
+      }
     }
   }
   .timeline-log {
@@ -599,7 +490,7 @@ div.page-third {
     @include codeFont;
     font-size: 13px;
     line-height: 21px;
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 6px 6px;
     ul {
       margin: 0;
     }
@@ -611,7 +502,7 @@ div.page-third {
         background: darken($dark-color, 15%);
       }
       &:last-child {
-        border-radius: 0 0 8px 8px;
+        border-radius: 0 0 6px 6px;
       }
       .log-status {
         position: absolute;
@@ -651,6 +542,7 @@ div.page-third {
   }
 }
 
+/* APP Footer - Terms link, Copyright */
 .app-footer {
   position: relative;
   box-sizing: border-box;
@@ -689,97 +581,24 @@ div.page-third {
   }
 }
 
-.blind {
-  z-index: 4;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba($dark-color, .75);
-}
-.layer {
-  z-index: 5;
-  position: fixed;
-  background: $canvas-color;
-  border-radius: 9px;
-  box-shadow: 0 0 24px rgba($dark-color, .5);
-  .layer-header h4 {
-    padding: 2px 24px 0;
-    border-bottom: 1px solid shade($bg-color, 8%);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 48px;
-  }
-  .layer-content {
-    max-height: 540px;
-    @include gradientY($bg-color, tint($bg-color, 10%));
-    padding: 24px;
-    overflow-y: auto;
-  }
-  .welcome {
-    display: block;
-    padding: 24px 0;
-    color: $dark-color;
-    text-align: center;
-    img {
-      margin: 32px auto 0;
-      display: block;
-      width: 80px;
-      border-radius: 50%;
-    }
-    .account-name {
-      display: block;
-      padding: 12px 0;
-      color: $dark-color;
-      font-size: 15px;
-      .fa {
-        margin-right: 6px;
-      }
-    }
-    strong {
-      display: block;
-      padding: 0 0 8px;
-      color: $dark-color;
-      font-weight: 300;
-      font-size: 24px;
-    }
-    p {
-      color: lighten($dark-color, 20%);
-      font-size: 15px;
-      line-height: 21px;
-    }
-  }
-  .layer-footer {
-    padding: 0 24px 2px;
-    border-top: 1px solid shade($bg-color, 5%);
-    line-height: 44px;
-    text-align: right;
-  }
-  &.layer-welcome {
-    left: 50%;
-    top: 120px;
-    margin-left: -240px;
-    width: 480px;
-  }
-}
-
+/* Organize Box */
 .organize-box {
   float: left;
   box-sizing: border-box;
+  padding: 0 0 0 18px;
   width: 25%;
   .organize-inner {
-    padding: 18px 0 0 18px;
+    padding-top: 16px;
   }
   li {
     position: relative;
     margin: 28px 0 40px;
     padding: 16px;
     border: 1px solid $bg-color;
-    border-bottom-color: darken($bg-color, 10%);
+    border-bottom-color: $fa-color;
     background: $canvas-color;
-    border-radius: 0 9px 9px;
-    box-shadow: 0 0 12px rgba($dark-color, .15);
+    border-radius: 0 6px 6px;
+    @include boxShadow;
     cursor: pointer;
     opacity: .6;
     .label {
@@ -800,7 +619,8 @@ div.page-third {
         font-size: 14px;
       }
     }
-    img {
+    .thumb-small {
+      display: inline-block;
       margin-right: 12px;
       vertical-align: middle;
       border-radius: 50%;
@@ -818,22 +638,23 @@ div.page-third {
   }
 }
 
+/* Repository Box */
 .repository-box {
   float: left;
   box-sizing: border-box;
   width: 75%;
-  padding: 18px;
+  padding: 0 18px 18px;
 }
 .repository-list {
   margin-top: 12px;
   border: 1px solid shade($bg-color, 5%);
-  border-bottom: none;
-  border-radius: 9px;
-  box-shadow: 0 1px 12px rgba($dark-color, .15);
+  border-bottom-color: $fa-color;
+  @include borderRadius;
+  box-shadow: 0 1px 12px rgba($black-color, .05);
   overflow: hidden;
   li {
     position: relative;
-    border-bottom: 1px solid shade($bg-color, 5%);
+    border-bottom: 1px solid $bg-color;
     background: $canvas-color;
     &:hover {
       background: $base-hover-color;
@@ -866,23 +687,23 @@ div.page-third {
   }
 }
 
+/* for Layout */
 .aside-box {
   float: left;
   box-sizing: border-box;
   padding-left: 18px;
-  width: 30%;
+  width: 28%;
+}
+.container {
+  max-width: inherit;
 }
 
+/* for Animation */
 .status-svg {
   stroke-dasharray: 750;
   stroke-dashoffset: 1500;
   animation: draw 5s ease-in infinite;
 }
-
-.container {
-  max-width: inherit;
-}
-
 .layer,
 .status-fail,
 .project-box,
@@ -891,7 +712,6 @@ div.page-third {
 .timeline-box {
   @include transition(all .5s ease-in-out);
 }
-
 .wow {
   visibility: hidden;
 }
@@ -900,3 +720,4 @@ div.page-third {
 @import "build.scss";
 @import "report.scss";
 @import "form.scss";
+@import "layer.scss";

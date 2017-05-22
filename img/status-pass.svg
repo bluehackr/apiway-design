@@ -1,7 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="479" height="102" viewBox="0 0 479 102">
-  <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".25" transform="translate(1 1)">
-    <path d="M0,50 L83,50" opacity=".8"/>
-    <path d="M318 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50" opacity=".8"/>
-    <path d="M84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50" opacity=".8"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="60" viewBox="0 0 1530 102">
+  <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".2">
+    <path d="0 50 84 50 94 20 114 90 134 0 154 100 174 10 194 80 204 50 317 50 328 20 348 90 368 0 388 100 408 10 428 80 438 50 551 50 561 20 581 90 601 0 621 100 641 10 661 80 671 50 764 50 848 50 858 20 878 90 898 0 918 100 938 10 958 80 968 50 1081 50 1092 20 1112 90 1132 0 1152 100 1172 10 1192 80 1202 50 1315 50 1325 20 1345 90 1365 0 1385 100 1405 10 1425 80 1435 50 1528 50"/>
   </g>
 </svg>

@@ -23,387 +23,390 @@
 
 <body class="app monitoring">
 
-<div class="app-wrap">
+  <div class="app-wrap">
 
-  <!-- app header with GNB -->
-  <header class="app-header">
-    <h1><img src="./img/logo-w.png" alt="apiway"></h1>
-    <nav>
-      <ul class="gnb">
-        <li><a href="./monitoring.html"><i class="fa fa-tachometer"></i>Monitoring</a></li>
-        <li class="is-current"><a href="./build.html"><i class="fa fa-play-circle"></i>Build</a></li>
-        <li><a href="./project.html"><i class="fa fa-briefcase"></i>Project</a></li>
-        <li><a href="./report.html"><i class="fa fa-file-text"></i>Reports</a></li>
-      </ul>
-      <ul class="snb">
-        <li><a href="#"><i class="fa fa-book"></i>Docs</a></li>
-        <li><a href="#"><i class="fa fa-commenting"></i>Help</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- app header with GNB -->
+    <header class="app-header">
+      <h1><img src="./img/logo-w.png" alt="apiway"></h1>
+      <nav>
+        <ul class="gnb">
+          <li><a href="./monitoring.html"><i class="fa fa-tachometer"></i>Monitoring</a></li>
+          <li class="is-current"><a href="./build.html"><i class="fa fa-play-circle"></i>Build</a></li>
+          <li><a href="./project.html"><i class="fa fa-briefcase"></i>Project</a></li>
+          <li><a href="./report.html"><i class="fa fa-file-text"></i>Reports</a></li>
+        </ul>
+        <ul class="snb">
+          <li><a href="#"><i class="fa fa-book"></i>Docs</a></li>
+          <li><a href="#"><i class="fa fa-commenting"></i>Help</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- app topper with Search, Account -->
-  <div class="app-topper">
+    <!-- app topper with Search, Account -->
+    <div class="app-topper">
 
-    <div class="search-box">
-      <form action="">
-        <input type="search" placeholder="Search Branch, Project.."/>
-        <input type="submit" hidden="hidden" />
-      </form>
+      <div class="search-box">
+        <form action="">
+          <input type="search" placeholder="Search Branch, Project.."/>
+          <input type="submit" hidden="hidden" />
+        </form>
+      </div>
+
+      <div class="account-box">
+        <a href="#" class="account-name">
+          <img src="./img/thumb.jpg" alt="thumbnail" width="44">
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <div class="layer account-nav">
+          <ul class="layer-nav">
+            <li>
+              <div class="account-info">
+                <img src="./img/thumb.jpg" alt="thumbnail" width="60">
+                <strong>bluehackmaster</strong>
+                <em>master@bluehack.net</em>
+              </div>
+            </li>
+            <li><a href="#"><i class="fa fa-cog"></i>Account setting</a></li>
+            <li><a href="#"><i class="fa fa-bell"></i>Notification</a></li>
+            <li><a href="login.html"><i class="fa fa-sign-out"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
 
-    <div class="account-box">
-      <a href="#" class="account-name">
-        <img src="./img/thumb.jpg" alt="thumbnail" width="44">
-        <i class="fa fa-caret-down"></i>
-      </a>
-      <div class="layer account-nav">
-        <ul>
-          <li>
-            <div class="account-info">
-              <img src="./img/thumb.jpg" alt="thumbnail" width="60">
-              <strong>bluehackmaster</strong>
-              <em>master@bluehack.net</em>
-            </div>
+    <div class="app-container">
+
+      <div class="aside-box">
+
+        <div class="aside-header">
+          <select class="projectlist-sort">
+            <option>Recent</option>
+            <option>A to Z</option>
+          </select>
+          <select class="projectlist-sort">
+            <option>All Branches</option>
+            <option>My Branches</option>
+          </select>
+        </div>
+        <ul class="projectlist-box">
+          <li class="projectlist-item">
+            <i class="fa fa-github"></i>
+            <strong>bluehackr / WalkOn-API</strong>
+            <span class="branch-label">master</span>
+            <span class="commit-count">#139</span>
+            <button class="ibtn btn-project-qsetting">
+              <i class="fa fa-cog"></i>
+              <span>Quick setting</span>
+            </button>
           </li>
-          <li><a href="#"><i class="fa fa-cog"></i>Account setting</a></li>
-          <li><a href="#"><i class="fa fa-bell"></i>Notification</a></li>
-          <li><a href="login.html"><i class="fa fa-sign-out"></i>Sign out</a></li>
+          <li class="projectlist-item is-current">
+            <i class="fa fa-github"></i>
+            <strong>bluehackr / WalkOn-longer-name-test-overflow-API</strong>
+            <span class="branch-label">master</span>
+            <span class="commit-count">#139</span>
+            <button class="ibtn btn-project-qsetting">
+              <i class="fa fa-cog"></i>
+              <span>Quick setting</span>
+            </button>
+          </li>
+          <li class="projectlist-item">
+            <i class="fa fa-github"></i>
+            <strong>bluehackr / WalkOn-API</strong>
+            <span class="branch-label">master</span>
+            <span class="commit-count">#139</span>
+            <button class="ibtn btn-project-qsetting">
+              <i class="fa fa-cog"></i>
+              <span>Quick setting</span>
+            </button>
+          </li>
+          <li class="projectlist-item">
+            <i class="fa fa-github"></i>
+            <strong>bluehackr / WalkOn-API</strong>
+            <span class="branch-label">master</span>
+            <span class="commit-count">#139</span>
+            <button class="ibtn btn-project-qsetting">
+              <i class="fa fa-cog"></i>
+              <span>Quick setting</span>
+            </button>
+          </li>
+          <li class="projectlist-item">
+            <i class="fa fa-github"></i>
+            <strong>bluehackr / WalkOn-API</strong>
+            <span class="branch-label">master</span>
+            <span class="commit-count">#139</span>
+            <button class="ibtn btn-project-qsetting">
+              <i class="fa fa-cog"></i>
+              <span>Quick setting</span>
+            </button>
+          </li>
         </ul>
       </div>
+
+      <div class="build-box">
+
+        <div class="bside-header">
+          <h3><i class="fa fa-play-circle"></i> Build</h3>
+          <select class="build-sort">
+            <option>All Status</option>
+            <option>Fail</option>
+            <option>Pause</option>
+            <option>Pass</option>
+          </select>
+          <select class="build-sort">
+            <option>My Tests</option>
+            <option>All Tests</option>
+          </select>
+        </div>
+
+        <ul class="build-list">
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-longer-name-test-text-overflow-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-fail">
+            <span class="label-status-fail animated infinite pulse">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="#FFFFFF" stroke="none" d="M18,9 L22,9 L21,22 L19,22 L18,9 Z M20,29 C18.8954305,29 18,28.1045695 18,27 C18,25.8954305 18.8954305,25 20,25 C21.1045695,25 22,25.8954305 22,27 C22,28.1045695 21.1045695,29 20,29 Z" id="Combined-Shape"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pause">
+            <span class="label-status-pause">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path d="M1 20 39 20" fill="none" stroke-width="2" stroke="#FFFFFF"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-fail">
+            <span class="label-status-fail animated infinite pulse">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="#FFFFFF" stroke="none" d="M18,9 L22,9 L21,22 L19,22 L18,9 Z M20,29 C18.8954305,29 18,28.1045695 18,27 C18,25.8954305 18.8954305,25 20,25 C21.1045695,25 22,25.8954305 22,27 C22,28.1045695 21.1045695,29 20,29 Z" id="Combined-Shape"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pause">
+            <span class="label-status-pause">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path d="M1 20 39 20" fill="none" stroke-width="2" stroke="#FFFFFF"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+          <li class="build-item is-pass">
+            <span class="label-status-pass">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
+                <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
+              </svg>
+            </span>
+            <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
+            <div class="build-author">
+              <img src="./img/thumb.jpg" width="20">
+              <code>[APIWAY-2] Added mocha dependency</code>
+            </div>
+            <div class="build-time">
+              <span class="build-date">1 minutes ago</span>
+              <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
     </div>
+
+    <footer class="app-footer">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <h6 class="copyright">
+          &copy; 2017 <a href="https://apiway.io/">apiway.io</a>
+        </h6>
+    </footer>
 
   </div>
 
-  <div class="app-container">
+  <!-- jquery and necessary plugins -->
+  <script src="js/libs/jquery.min.js"></script>
+  <script src="js/libs/wow.js"></script>
 
-    <div class="aside-box">
-
-      <div class="aside-header">
-        <select class="projectlist-sort">
-          <option>Recent</option>
-          <option>A to Z</option>
-        </select>
-        <select class="projectlist-sort">
-          <option>All Branches</option>
-          <option>My Branches</option>
-        </select>
-      </div>
-      <ul class="projectlist-box">
-        <li class="projectlist-item">
-          <i class="fa fa-github"></i>
-          <strong>bluehackr / WalkOn-API</strong>
-          <span class="branch-label">master</span>
-          <span class="commit-count">#139</span>
-          <button class="ibtn btn-project-qsetting">
-            <i class="fa fa-cog"></i>
-            <span>Quick setting</span>
-          </button>
-        </li>
-        <li class="projectlist-item is-current">
-          <i class="fa fa-github"></i>
-          <strong>bluehackr / WalkOn-longer-name-test-overflow-API</strong>
-          <span class="branch-label">master</span>
-          <span class="commit-count">#139</span>
-          <button class="ibtn btn-project-qsetting">
-            <i class="fa fa-cog"></i>
-            <span>Quick setting</span>
-          </button>
-        </li>
-        <li class="projectlist-item">
-          <i class="fa fa-github"></i>
-          <strong>bluehackr / WalkOn-API</strong>
-          <span class="branch-label">master</span>
-          <span class="commit-count">#139</span>
-          <button class="ibtn btn-project-qsetting">
-            <i class="fa fa-cog"></i>
-            <span>Quick setting</span>
-          </button>
-        </li>
-        <li class="projectlist-item">
-          <i class="fa fa-github"></i>
-          <strong>bluehackr / WalkOn-API</strong>
-          <span class="branch-label">master</span>
-          <span class="commit-count">#139</span>
-          <button class="ibtn btn-project-qsetting">
-            <i class="fa fa-cog"></i>
-            <span>Quick setting</span>
-          </button>
-        </li>
-        <li class="projectlist-item">
-          <i class="fa fa-github"></i>
-          <strong>bluehackr / WalkOn-API</strong>
-          <span class="branch-label">master</span>
-          <span class="commit-count">#139</span>
-          <button class="ibtn btn-project-qsetting">
-            <i class="fa fa-cog"></i>
-            <span>Quick setting</span>
-          </button>
-        </li>
-      </ul>
-    </div>
-
-    <div class="build-box">
-
-      <div class="bside-header">
-        <h3><i class="fa fa-play-circle"></i> Build</h3>
-        <select class="build-sort">
-          <option>All Status</option>
-          <option>Fail</option>
-          <option>Pause</option>
-          <option>Pass</option>
-        </select>
-        <select class="build-sort">
-          <option>My Tests</option>
-          <option>All Tests</option>
-        </select>
-      </div>
-
-      <ul class="build-list">
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-longer-name-test-text-overflow-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-fail">
-          <span class="label-status-fail animated infinite pulse">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="#FFFFFF" stroke="none" d="M18,9 L22,9 L21,22 L19,22 L18,9 Z M20,29 C18.8954305,29 18,28.1045695 18,27 C18,25.8954305 18.8954305,25 20,25 C21.1045695,25 22,25.8954305 22,27 C22,28.1045695 21.1045695,29 20,29 Z" id="Combined-Shape"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pause">
-          <span class="label-status-pause">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path d="M1 20 39 20" fill="none" stroke-width="2" stroke="#FFFFFF"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-fail">
-          <span class="label-status-fail animated infinite pulse">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="#FFFFFF" stroke="none" d="M18,9 L22,9 L21,22 L19,22 L18,9 Z M20,29 C18.8954305,29 18,28.1045695 18,27 C18,25.8954305 18.8954305,25 20,25 C21.1045695,25 22,25.8954305 22,27 C22,28.1045695 21.1045695,29 20,29 Z" id="Combined-Shape"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pause">
-          <span class="label-status-pause">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path d="M1 20 39 20" fill="none" stroke-width="2" stroke="#FFFFFF"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-        <li class="build-item is-pass">
-          <span class="label-status-pass">
-            <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 40 40">
-              <path fill="none" stroke-width="2" stroke="#FFFFFF" d="M1 20 9 20 10.8025751 14.6 14.4077253 27.2 18.0128755 11 21.6180258 29 25.223176 12.8 28.8283262 25.4 30.6309013 20 39 20"></path>
-            </svg>
-          </span>
-          <a href="./build-detail.html">bluehackr / WalkOn-API / master #19</a>
-          <div class="build-author">
-            <img src="./img/thumb.jpg" width="20">
-            <code>[APIWAY-2] Added mocha dependency</code>
-          </div>
-          <div class="build-time">
-            <span class="build-date">1 minutes ago</span>
-            <span class="build-during"><i class="fa fa-clock-o"></i> 01:39</span>
-          </div>
-        </li>
-      </ul>
-
-    </div>
-
-  </div>
-
-  <footer class="app-footer">
-      <a href="#">Terms of Service</a>
-      <a href="#">Privacy</a>
-      <a href="#">Cookies</a>
-      <h6 class="copyright">
-        &copy; 2017 <a href="https://apiway.io/">apiway.io</a>
-      </h6>
-  </footer>
-
-</div>
-
-<script src="js/libs/jquery.min.js"></script>
-<!-- Custom scripts required by this view -->
-<script src="js/app.js"></script>
+  <!-- main scripts-->
+  <script src="js/app.js"></script>
 
 </body>
 

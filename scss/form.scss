@@ -1,3 +1,39 @@
+/* Pannel */
+.pane {
+  z-index: 2;
+  position: relative;
+  margin: 0 auto;
+  max-width: 380px;
+  background: $white-color;
+  @include borderRadius;
+  box-shadow: 0 4px 18px $blind-color;
+  overflow: hidden;
+  .pane-header {
+      padding: 64px 0 32px;
+      h1 {
+        margin: 0;
+        img {
+          width: 120px;
+        }
+      }
+  }
+  .container {
+    padding: 0 40px 40px;
+  }
+  .pane-footer {
+    padding-bottom: 2px;
+    border-top: 1px solid shade($bg-color, 2%);
+    background: $base-hover-color;
+    font-size: 14px;
+    line-height: 48px;
+    a {
+      color: $black-color;
+      font-weight: 500;
+    }
+  }
+}
+
+/* Select component */
 select {
   -webkit-appearance: none; /* hidden native design */
   -moz-appearance: none;
@@ -10,7 +46,7 @@ select {
   color: $dark-color;
   font-size: 12px;
   line-height: 30px;
-  border-radius: 4px;
+  @include borderRadiusS;
   outline: none;
   &:hover, &:focus {
     border-color: darken($bg-color, 20%);
@@ -27,7 +63,8 @@ select {
   }
 }
 
-.btn { /* button */
+/* button */
+.btn {
   margin: 2px;
   padding: 0 8px;
   height: 32px;
@@ -36,8 +73,8 @@ select {
   font-weight: 600;
   font-size: 12px;
   line-height: 32px;
-  border-radius: 4px;
   text-shadow: 0 1px shade($point-color, 10%);
+  @include borderRadiusS;
   box-shadow: inset 0 -1px rgba($black-color, .1), 0 1px 2px rgba($black-color, .12);
   outline: none;
   &:enabled:hover {
@@ -60,7 +97,7 @@ select {
     height: 46px;
     font-size: 16px;
     line-height: 46px;
-    border-radius: 4px;
+    @include borderRadiusS;
     .fa {
       position: absolute;
       left: 16px;
@@ -76,10 +113,11 @@ select {
     }
   }
   &:disabled {
-    background: darken($bg-color, 25%);
-    text-shadow: 0 -1px shade(darken($bg-color, 30%), 10%);
-    opacity: 0.4;
+    background: $bg-color;
+    color: shade($bg-color, 10%);
     cursor: not-allowed;
+    text-shadow: none;
+    box-shadow: none;
   }
   &-clear { /* solid line button */
     padding: 0 12px;
@@ -87,7 +125,7 @@ select {
     border: 2px solid $point-color;
     background: $white-color;
     line-height: 30px;
-    border-radius: 3px;
+    @include borderRadiusS;
   }
   &-text { /* text link style button */
     background: transparent;
@@ -100,6 +138,7 @@ select {
     .fa {
       margin: 0 6px;
     }
+    &:disabled, &:disabled:hover, &:disabled:active { text-decoration: none; }
   }
   &.btn-red {
     background: $error-color;
@@ -127,6 +166,7 @@ select {
   }
 }
 
+/* Icon button */
 .ibtn {
   padding: 0;
   width: 40px;
@@ -137,22 +177,27 @@ select {
   font-size: 14px;
   line-height: 38px;
   text-align: center;
+  @include borderRadiusS;
   span {
     display: none;
   }
-  &:hover, &:active, &:visited, &:focus {
-    background: transparent !important;
+  &:hover, &:active, &:focus {
     color: $font-color;
+  }
+  &:active, &:focus {
+    background: $base-hover-color !important;
+    box-shadow: 0 0 1px $fa-color;
   }
 }
 
+/* Text input */
 input {
   display: inline-block;
   box-sizing: border-box;
   font-size: 12px;
   line-height: 32px;
   vertical-align: middle;
-  border-radius: 3px;
+  @include borderRadiusS;
   outline: none;
   &[type=text],
   &[type=search] {
@@ -178,4 +223,71 @@ input {
 }
 @include placeholder {
   color: rgba($dark-color, .4);
+}
+
+/* thumbnail */
+.thumb,
+.thumb-small {
+  position: relative;
+  width: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    display: block;
+    min-width: 80px;
+    min-height: 80px;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 0 1px rgba($black-color, .4);
+  }
+  &-small {
+    width: 32px;
+    img {
+      min-width: 32px;
+      min-height: 32px;
+    }
+  }
+}
+
+/* unread label */
+.unread {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  box-sizing: border-box;
+  padding: 0 6px 1px;
+  min-width: 24px;
+  background: $error-color;
+  color: $white-color;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 23px;
+  text-align: center;
+  @include borderRadiusS;
+  @include boxShadowDeep;
+}
+
+/* progress bar - half circle */
+.progress-bar {
+  margin: 32px 0;
+  text-align: center;
+  svg {
+    margin: 0 auto;
+    path {
+      stroke: $fa-color;
+      &:last-child {
+        stroke: $point-color;
+        stroke-dasharray: 750;
+        stroke-dashoffset: 1500;
+        animation: draw 5s ease-in;
+      }
+    }
+  }
 }
