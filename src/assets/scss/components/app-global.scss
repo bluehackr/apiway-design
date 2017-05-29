@@ -94,3 +94,19 @@ html,body {
     }
   }
 }
+
+/* APP TOPBAR */
+#app-topbar {
+  border-bottom: 1px solid $light-combo-gray;
+}
+
+.project-box {
+  padding: 0 0 24px 24px;
+}
+.project-inner {
+  margin: 24px 24px 0 0;
+  border: 1px solid $light-combo-gray;
+  background: $white;
+  border-radius: $global-radius;
+  box-shadow: 0 1px 12px $light-combo-gray;
+}
