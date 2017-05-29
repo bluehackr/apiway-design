@@ -1,12 +1,14 @@
-#app-gnb {
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 100%;
-  background: $white;
-  box-shadow: 1px 0 12px $light-combo-gray;
+/* Global retouch */
+strong, em {
+  font-weight: 500;
+}
+.is-dropdown-submenu {
+  background: $white !important;
 }
 
+/* SVG icon styling */
 .si {
+  margin: 1px;
   display: inline-block;
   fill: none;
   width: 18px;
@@ -17,6 +19,7 @@
   stroke-width: 2px;
 }
 
+/* avatar */
 .avatar {
   position: relative;
   width: 90px;
@@ -41,6 +44,53 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    box-shadow: inset 0 0 $medium-gray;
+    box-shadow: inset 0 0 1px $dark-gray;
+  }
+}
+html,body {
+  height: 100%;
+}
+.app {
+  min-height: 100%;
+}
+
+/* APP GNB */
+#app-gnb {
+  position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100%;
+  background: $white;
+  box-shadow: 1px 0 12px rgba($dark-gray, .18);
+  .menu {
+    font-size: 13px;
+    text-align: center;
+    a {
+      display: block;
+      padding: 24px 0;
+      border-top: 1px solid $light-combo-gray;
+      &:hover {
+        background: $light-gray;
+      }
+    }
+    &:first-child {
+      .si {
+        display: block;
+        width: 100%;
+        height: 32px;
+      }
+      span {
+        display: block;
+        padding: 6px 0 0;
+      }
+    }
+    &:last-child {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      a {
+        padding: 16px 0;
+      }
+    }
   }
 }

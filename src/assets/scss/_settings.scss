@@ -42,13 +42,13 @@
 //  37. Top Bar
 
 @import 'util/util';
-@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500'); // Google Font
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500'); // Google Font
 @import 'motion-ui'; // Motion UI
 
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: 94%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
@@ -61,12 +61,12 @@ $foundation-palette: (
 $light-gray: #F4F8F9;
 $light-combo-gray: #EAF0F2;
 $medium-gray: #90A4AE;
-$dark-gray: #353F45;
+$dark-gray: #90A4AE;
 $black: #353F45;
 $white: #FFF;
 $body-background: $light-gray;
 $body-font-color: $black;
-$body-font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Ubuntu', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 0;
 $global-padding: 0;
@@ -144,8 +144,8 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-color: $dark-gray;
+$anchor-color-hover: $black;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -349,7 +349,7 @@ $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-min-width: 200px;
 $dropdownmenu-background: $white;
-$dropdownmenu-border: 1px solid $medium-gray;
+$dropdownmenu-border: 1px solid $light-combo-gray;
 
 // 19. Forms
 // ---------
@@ -415,8 +415,8 @@ $mediaobject-image-width-stacked: 100%;
 $menu-margin: 0;
 $menu-margin-nested: 1rem;
 $menu-item-padding: 0.7rem 1rem;
-$menu-item-color-active: $white;
-$menu-item-background-active: get-color(primary);
+$menu-item-color-active: $black;
+$menu-item-background-active: $white;
 $menu-icon-spacing: 0.25rem;
 $menu-item-background-hover: $light-gray;
 $menu-border: $light-gray;

@@ -76,9 +76,6 @@ function styleGuide(done) {
 // In production, the CSS is compressed
 function sass() {
   return gulp.src('src/assets/scss/app.scss')
-    .pipe(sass({
-      includePaths: ['node_modules/motion-ui/src']
-    })
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
